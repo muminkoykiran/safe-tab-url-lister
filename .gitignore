@@ -1,0 +1,26 @@
+# Build artifacts
+*.zip
+safe-tab-url-lister-v*.zip
+
+# Generated screenshots (not part of source)
+*.png
+!icons/*.png
+!docs/screenshots/*.png
+
+# Playwright MCP cache
+.playwright-mcp/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.user
