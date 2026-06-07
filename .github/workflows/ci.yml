@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate manifest.json
+        run: |
+          python3 -c "
+          import json, sys
+          with open('manifest.json') as f:
+              m = json.load(f)
+          assert m['manifest_version'] == 3, 'Must be Manifest V3'
+          assert 'name' in m, 'name required'
+          assert 'version' in m, 'version required'
+          assert 'default_locale' in m, 'default_locale required for i18n'
+          print('manifest.json OK — MV3, version:', m['version'])
+          "
+
+      - name: Validate _locales
+        run: |
+          python3 -c "
+          import json, os, sys
+          locales = ['en', 'tr']
+          for loc in locales:
+              path = f'_locales/{loc}/messages.json'
+              with open(path) as f:
+                  data = json.load(f)
+              keys = list(data.keys())
+              print(f'{loc}: {len(keys)} keys OK')
+          # Check all English keys exist in Turkish
+          with open('_locales/en/messages.json') as f:
+              en = json.load(f)
+          with open('_locales/tr/messages.json') as f:
+              tr = json.load(f)
+          missing = [k for k in en if k not in tr]
+          if missing:
+              print('Missing Turkish translations:', missing)
+              sys.exit(1)
+          print('All EN keys present in TR')
+          "
+
+      - name: Check required files
+        run: |
+          for f in manifest.json popup.html popup.css popup.js LICENSE README.md CHANGELOG.md; do
+            [ -f "$f" ] && echo "OK: $f" || (echo "MISSING: $f" && exit 1)
+          done
+          for size in 16 48 128; do
+            [ -f "icons/icon${size}.png" ] && echo "OK: icon${size}.png" || (echo "MISSING: icon${size}.png" && exit 1)
+          done
+
+      - name: Build zip (dry run)
+        run: |
+          zip -r test-build.zip . \
+            --exclude "*.DS_Store" \
+            --exclude "*.zip" \
+            --exclude "generate-icons.js" \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "node_modules/*" \
+            --exclude "docs/*" \
+            --exclude "CONTRIBUTING.md" \
+            --exclude "CHANGELOG.md" \
+            --exclude "LICENSE" \
+            --exclude "README.md"
+          ls -lh test-build.zip
+          echo "Build OK"

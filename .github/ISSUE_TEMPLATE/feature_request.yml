@@ -1,0 +1,43 @@
+name: Feature Request
+description: Suggest an idea for this extension
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Safe Tab URL Lister is intentionally minimal and privacy-first.
+        New features are evaluated against that philosophy.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Use Case
+      description: What are you trying to do that you can't do today?
+      placeholder: e.g. I often want to copy only pinned tabs but the extension copies all tabs...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this to work?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: privacy-impact
+    attributes:
+      label: Does this require any new permissions?
+      options:
+        - "No — works within existing 'tabs' permission"
+        - "Yes — requires additional permissions"
+        - "Unsure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any other approaches you've thought about?
