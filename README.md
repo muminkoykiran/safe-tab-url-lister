@@ -55,7 +55,7 @@ This extension is designed with a minimal-permission, zero-data-collection appro
 
 ### From Chrome Web Store
 
-[Install from the Chrome Web Store](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif) *(pending review)*
+[Install from the Chrome Web Store](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif)
 
 ### Load Unpacked (Developer Mode)
 
