@@ -4,7 +4,7 @@
     "description": "Extension name"
   },
   "appDescription": {
-    "message": "List and copy all tab URLs locally. Zero tracking, no servers, minimal permissions.",
+    "message": "Copy all open tab URLs as plain text, Markdown, JSON, or CSV. Zero tracking, no servers, no accounts.",
     "description": "Extension description shown in the Chrome Web Store"
   },
   "loading": {
