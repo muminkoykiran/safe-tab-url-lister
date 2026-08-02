@@ -644,7 +644,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Z85VCGKZJ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safe Tab URL Lister Extension";
@@ -660,7 +660,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister.Extension";
 				PRODUCT_NAME = "Safe Tab URL Lister Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -678,7 +678,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Z85VCGKZJ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safe Tab URL Lister Extension";
@@ -694,7 +694,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister.Extension";
 				PRODUCT_NAME = "Safe Tab URL Lister Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -715,7 +715,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Z85VCGKZJ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safe Tab URL Lister";
@@ -736,7 +736,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister";
 				PRODUCT_NAME = "Safe Tab URL Lister";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -756,7 +756,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Z85VCGKZJ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safe Tab URL Lister";
@@ -777,7 +777,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister";
 				PRODUCT_NAME = "Safe Tab URL Lister";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -814,7 +814,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister.Extension";
 				PRODUCT_NAME = "Safe Tab URL Lister Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -849,7 +849,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister.Extension";
 				PRODUCT_NAME = "Safe Tab URL Lister Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -889,7 +889,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister";
 				PRODUCT_NAME = "Safe Tab URL Lister";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
@@ -930,7 +930,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.muminkoykiran.safe-tab-url-lister";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.muminkoykiran.safe-tab-url-lister";
 				PRODUCT_NAME = "Safe Tab URL Lister";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
