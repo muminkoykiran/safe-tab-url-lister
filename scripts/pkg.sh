@@ -47,7 +47,7 @@ do_pkg() {
     fi
     cd "$BASEDIR/dist/$BROWSER"
     # ../../ is because we are in ./dist/$BROWSER
-    zip -r "../../$EXTDIR/safe-tab-url-lister-$VERSION.zip" ./
+    zip -r "../../$EXTDIR/safe-tab-url-lister--$BROWSER-$VERSION.zip" ./
 }
 
 if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "chrome" ]; then
@@ -57,5 +57,6 @@ if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "firefox" ]; then
     do_pkg "firefox"
 fi
 if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "safari" ]; then
-    do_pkg "safari"
+    # safari doesn't use these packages
+    #do_pkg "safari"
 fi
