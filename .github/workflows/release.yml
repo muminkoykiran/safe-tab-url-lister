@@ -22,7 +22,7 @@ jobs:
 
       - name: Build extension zip
         run: |
-          ./scripts/pkg.sh chrome ${{ github.ref_name }}
+          ./scripts/pkg.sh all ${{ github.ref_name }}
 
       - name: Extract changelog entry
         id: changelog
@@ -37,6 +37,6 @@ jobs:
         with:
           name: Safe Tab URL Lister ${{ github.ref_name }}
           body_path: release_notes.md
-          files: extensions/safe-tab-url-lister-${{ github.ref_name }}.zip
+          files: extensions/safe-tab-url-lister-chrome-${{ github.ref_name }}.zip extensions/safe-tab-url-lister-firefox-${{ github.ref_name }}.zip
           draft: false
           prerelease: false
