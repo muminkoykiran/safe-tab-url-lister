@@ -11,6 +11,13 @@ body {
   color: #111827;
 }
 
+@supports (-webkit-touch-callout: none) {
+    body {
+      width: 400px;
+      max-width: none;
+    }
+}
+
 /* ── Header ── */
 header {
   display: flex;
@@ -64,6 +71,13 @@ textarea {
   background: #ffffff;
   color: #111827;
   margin-top: 8px;
+}
+
+@supports (-webkit-touch-callout: none) {
+    /* on iPhone, buttons don't show */
+    textarea {
+      height: 200px;
+    }
 }
 
 /* ── Buttons ── */
