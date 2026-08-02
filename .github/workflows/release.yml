@@ -22,19 +22,7 @@ jobs:
 
       - name: Build extension zip
         run: |
-          zip -r safe-tab-url-lister-${{ github.ref_name }}.zip . \
-            --exclude "*.DS_Store" \
-            --exclude "*.zip" \
-            --exclude "generate-icons.js" \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude ".playwright-mcp/*" \
-            --exclude "node_modules/*" \
-            --exclude "docs/*" \
-            --exclude "CONTRIBUTING.md" \
-            --exclude "CHANGELOG.md" \
-            --exclude "LICENSE" \
-            --exclude "README.md"
+          ./scripts/pkg.sh chrome ${{ github.ref_name }}
 
       - name: Extract changelog entry
         id: changelog
@@ -49,6 +37,6 @@ jobs:
         with:
           name: Safe Tab URL Lister ${{ github.ref_name }}
           body_path: release_notes.md
-          files: safe-tab-url-lister-${{ github.ref_name }}.zip
+          files: extensions/safe-tab-url-lister-${{ github.ref_name }}.zip
           draft: false
           prerelease: false

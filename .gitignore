@@ -2,6 +2,9 @@
 *.zip
 safe-tab-url-lister-v*.zip
 
+dist/
+extensions/
+
 # Generated screenshots (not part of source)
 *.png
 !icons/*.png
