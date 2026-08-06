@@ -1,7 +1,7 @@
 // ── i18n ──────────────────────────────────────────────────────────────────────
 
 function i18n(key, ...subs) {
-  return chrome.i18n.getMessage(key, subs) || key;
+  return (typeof browser !== "undefined" ? browser : chrome).i18n.getMessage(key, subs) || key;
 }
 
 function applyI18n() {
@@ -73,7 +73,7 @@ function formatTabs(tabs, format, withTitles) {
 async function loadTabs() {
   setStatus("");
   const query  = allWindows.checked ? {} : { currentWindow: true };
-  const tabs   = await chrome.tabs.query(query);
+  const tabs   = await (typeof browser !== "undefined" ? browser : chrome).tabs.query(query);
   const active = tabs.filter(t => t.url);
 
   if (active.length === 0) {

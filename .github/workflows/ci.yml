@@ -18,13 +18,15 @@ jobs:
         run: |
           python3 -c "
           import json, sys
-          with open('manifest.json') as f:
-              m = json.load(f)
-          assert m['manifest_version'] == 3, 'Must be Manifest V3'
-          assert 'name' in m, 'name required'
-          assert 'version' in m, 'version required'
-          assert 'default_locale' in m, 'default_locale required for i18n'
-          print('manifest.json OK — MV3, version:', m['version'])
+          browsers = ['chrome', 'firefox', 'safari', ]
+          for browser in browsers:
+            with open('src/manifest/manifest.{}.json'.format(browser) as f:
+                m = json.load(f)
+            assert m['manifest_version'] == 3, 'Must be Manifest V3'
+            assert 'name' in m, 'name required'
+            assert 'version' in m, 'version required'
+            assert 'default_locale' in m, 'default_locale required for i18n'
+            print('manifest.chrome.json OK — MV3, version:', m['version'])
           "
 
       - name: Validate _locales
@@ -33,15 +35,15 @@ jobs:
           import json, os, sys
           locales = ['en', 'tr']
           for loc in locales:
-              path = f'_locales/{loc}/messages.json'
+              path = f'src/_locales/{loc}/messages.json'
               with open(path) as f:
                   data = json.load(f)
               keys = list(data.keys())
               print(f'{loc}: {len(keys)} keys OK')
           # Check all English keys exist in Turkish
-          with open('_locales/en/messages.json') as f:
+          with open('src/_locales/en/messages.json') as f:
               en = json.load(f)
-          with open('_locales/tr/messages.json') as f:
+          with open('src/_locales/tr/messages.json') as f:
               tr = json.load(f)
           missing = [k for k in en if k not in tr]
           if missing:
@@ -52,26 +54,24 @@ jobs:
 
       - name: Check required files
         run: |
-          for f in manifest.json popup.html popup.css popup.js LICENSE README.md CHANGELOG.md; do
+          for f in build.sh pkg.sh create-icons.js; do
+            [ -f "scripts/$f" ] && echo "OK: $f" || (echo "MISSING: scripts/$f" && exit 1)
+          done
+          for f in LICENSE README.md CHANGELOG.md; do
             [ -f "$f" ] && echo "OK: $f" || (echo "MISSING: $f" && exit 1)
           done
+          for f in popup.html popup.css popup.js; do
+            [ -f "src/$f" ] && echo "OK: $f" || (echo "MISSING: src/$f" && exit 1)
+          done
+          for f in chrome firefox safari; do
+            [ -f "src/manifest/manifest.$f.json" ] && echo "OK: manifest.$f.json" || (echo "MISSING: src/manifest/manifest.$f.json" && exit 1)
+          done
           for size in 16 48 128; do
-            [ -f "icons/icon${size}.png" ] && echo "OK: icon${size}.png" || (echo "MISSING: icon${size}.png" && exit 1)
+            [ -f "src/icons/icon${size}.png" ] && echo "OK: icon${size}.png" || (echo "MISSING: src/icons/icon${size}.png" && exit 1)
           done
 
       - name: Build zip (dry run)
         run: |
-          zip -r test-build.zip . \
-            --exclude "*.DS_Store" \
-            --exclude "*.zip" \
-            --exclude "generate-icons.js" \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "node_modules/*" \
-            --exclude "docs/*" \
-            --exclude "CONTRIBUTING.md" \
-            --exclude "CHANGELOG.md" \
-            --exclude "LICENSE" \
-            --exclude "README.md"
-          ls -lh test-build.zip
+          ./scripts/pkg.sh chrome test-build
+          ls -lh ./extensions/safe-tab-url-lister-test-build.zip
           echo "Build OK"
