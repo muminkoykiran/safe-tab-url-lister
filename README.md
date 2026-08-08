@@ -161,7 +161,7 @@ title,url
 | Screenshot | Not selectable text, no clickable links |
 | Session manager extensions | Often require accounts or sync, large permission sets |
 | Manual copy-paste | Slow, error-prone for more than a handful of tabs |
-| **Safe Tab URL Lister** | **One click, 5 formats, zero tracking, no account needed** |
+| **Safe Tab URL Lister** | **One click, 4 formats, zero tracking, no account needed** |
 
 ---
 
