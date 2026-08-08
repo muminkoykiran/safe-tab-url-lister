@@ -174,6 +174,9 @@ Built with Manifest V3. Works in any Chromium-based browser that supports MV3 ex
 - Brave Browser
 - Vivaldi
 - Opera (with Chrome extension support enabled)
+- Firefox
+- Safari (MacOs and iOS)
+  - Last Accessed date and tab group information not available
 
 ---
 
