@@ -5,15 +5,15 @@
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v1.0.1-blue?logo=google-chrome)](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif)
 [![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20TR-orange.svg)](_locales/)
 
-A free, open-source Chrome extension that collects every URL from your open tabs and copies them in the format you need — plain text, Markdown links, a JSON array, or CSV. No servers, no tracking, no accounts. Everything runs locally in your browser.
+A free, open-source Chrome, Firefox and Safari extension that collects every URL from your open tabs and copies them in the format you need — plain text, Markdown links, a JSON array, CSV or TSV. No servers, no tracking, no accounts. Everything runs locally in your browser.
 
 ---
 
 ## The Problem This Solves
 
-When you have 20, 50, or 100 tabs open and need to save, share, or process those URLs, Chrome gives you no built-in way to extract them as text. Bookmarking all tabs is permanent and clutters your bookmark bar. Taking a screenshot loses the clickable URLs. Manually copying each address is slow and error-prone.
+When you have 20, 50, or 100 tabs open and need to save, share, or process those URLs, browsers give you no built-in way to extract them as text. Bookmarking all tabs is permanent and clutters your bookmark bar. Taking a screenshot loses the clickable URLs. Manually copying each address is slow and error-prone.
 
-Safe Tab URL Lister solves this in one click. Click the icon, choose your format (plain text, Markdown, JSON, or CSV), and copy. Your URLs are on the clipboard, ready to paste into a document, a spreadsheet, a code editor, or an AI chat window.
+Safe Tab URL Lister solves this in one click. Click the icon, choose your format (plain text, Markdown, JSON, CSV or TSV), and copy. Your URLs are on the clipboard, ready to paste into a document, a spreadsheet, a code editor, or an AI chat window.
 
 ---
 
@@ -21,8 +21,8 @@ Safe Tab URL Lister solves this in one click. Click the icon, choose your format
 
 | Property | Value |
 |---|---|
-| Output formats | Plain URLs, Markdown links, JSON array, CSV |
-| Permissions required | `tabs` only |
+| Output formats | Plain URLs, Markdown links, JSON array, CSV, TSV |
+| Permissions required | `tabs` and `tabGroups` only |
 | Network requests | Zero |
 | Data collection | None |
 | Price | Free |
@@ -45,15 +45,23 @@ Safe Tab URL Lister solves this in one click. Click the icon, choose your format
 
 - **List URLs** from the current window or all open Chrome windows
 - **Include page titles** alongside each URL (optional)
-- **4 output formats:**
+- **5 output formats:**
   - Plain URLs — one per line
-  - Markdown links — `[Page Title](https://url)`
+  - Markdown 
+    - Single Line: `[Page Title](https://url)`
+    - Markdown w/ Links:
+      ```markdown
+ [Page Title](https://url)
+  * field name: field value
+      ```
   - JSON — structured array for developers
   - CSV — spreadsheet-ready with optional titles
+  - TSV - Tab seperated values
 - **One-click copy** to clipboard
 - **Dark mode** support (follows system preference)
 - **Keyboard accessible** (WCAG 2.1 AA)
 - **Bilingual** — English and Turkish
+- **Safari Limitations** The Safari browser does not support providing the *Last Accessed* or *Tab Group* information.
 
 ---
 
@@ -79,7 +87,7 @@ This extension is designed with a minimal-permission, zero-data-collection appro
 
 | What | Status |
 |------|--------|
-| Permissions | Only `tabs` — nothing else |
+| Permissions | Only `tabs` and `tabsGroups` — nothing else |
 | `host_permissions` | None |
 | Background service worker | None |
 | Network requests | None |
@@ -93,16 +101,63 @@ This extension is designed with a minimal-permission, zero-data-collection appro
 
 ## Installation
 
-### From Chrome Web Store
+For each installation type, enabling the Extension, authorizing permissions and websites, and if applicable access to Incognito / Private tabs may be required.
+
+### Chrome ###
+
+#### From Chrome Web Store
 
 [Install from the Chrome Web Store](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif)
 
-### Load Unpacked (Developer Mode)
+#### Load Unpacked (Developer Mode)
 
 1. Clone or download this repository
-2. Open `chrome://extensions/`
-3. Enable **Developer mode** (top-right toggle)
-4. Click **Load unpacked** → select this folder
+2. Build: `./scripts/build.sh chrome`  or `node ./scripts/build.js chrome`
+3. Open `chrome://extensions/`
+4. Enable **Developer mode** (top-right toggle)
+5. Click **Load unpacked** → select the ./dist/chrome folder
+
+
+### Firefox ###
+
+#### From Firefox Add On Store
+
+Not Yet Available
+
+#### Load Temporary Add On
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh firefox`  or `node ./scripts/build.js firefox`
+3. Open `about:debugging#/runtime/this-firefox`
+4. Click the **Load Temporary Addon...** button
+5. Select the manifest.json file in the ./dist/firefox folder and click the **Open** button
+
+### Safari ###
+
+#### From Apple App Store
+
+Not Yet Available
+
+#### Load Temporary Extension (MacOS)
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh safari`  or `node ./scripts/build.js safari`
+3. Open Safari Settings 
+4. If *Developer* features not enabled, click on the **Advanced** tab and enable **Show features for web developers**
+5. Click on the **Developer** tab
+6. Click on the **Add Temporary Extension** button
+7. Click **Select** after selecting the ./dist/safari folder
+
+#### Via Xcode
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh safari`  or `node ./scripts/build.js safari`
+3. Open the Xcode project at `./xcode/Safe\ Tab\ URL\ Lister/Safe\ Tab\ URL\ Lister.xcodeproj`
+4. If building for iOS, for each of the iOS targets in the project, assign a Team in the **Signing & Capabilities** tab
+5. Select the specific target and build.
+
+
+
 
 ---
 
@@ -114,9 +169,61 @@ One URL per line, with no decoration. Use this when you want the simplest possib
 
 ```
 https://github.com
+
 https://example.com
+
 https://news.ycombinator.com
 ```
+
+### Plain URLs w/ All Includes ###
+
+```
+# Window: 1526122566 #
+
+1. Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers
+https://developer.chrome.com/docs/webstore/publish
+Tab Id: 1526122657
+Last Accessed: 2026-08-02 18:11:11
+
+2. Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers
+https://developer.chrome.com/docs/webstore/best-listing
+Tab Id: 1526122655
+Last Accessed: 2026-07-25 21:11:40
+
+# Window: 1526122673 #
+
+1. GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub
+https://github.com/anthropics/claude-code
+Tab Id: 1526122692
+Last Accessed: 2026-08-06 23:59:29
+
+2. Hacker News
+https://news.ycombinator.com/
+Tab Id: 1526122652
+Last Accessed: 2026-08-07 21:24:39
+
+# Window: 1526122683 [incognito] #
+
+1. Chrome Extensions  |  Chrome for Developers
+https://developer.chrome.com/docs/extensions
+Tab Id: 1526122693
+Group: Extensions (green)
+Last Accessed: 2026-08-07 21:36:51
+
+2. Extensions / How to  |  Chrome for Developers
+https://developer.chrome.com/docs/extensions/how-to
+Tab Id: 1526122703
+Opened By: 1526122693
+Group: Extensions (green)
+Last Accessed: 2026-08-07 21:39:18
+
+3. Newest 'google-chrome-extension' Questions - Stack Overflow
+https://stackoverflow.com/questions/tagged/google-chrome-extension
+Tab Id: 1526122697
+Group: Extensions (green)
+Last Accessed: 2026-08-07 21:36:48
+```
+
 
 ### Markdown Links
 
@@ -126,6 +233,27 @@ Outputs `[Page Title](URL)` for each tab. Paste directly into any Markdown edito
 [GitHub](https://github.com)
 [Example Domain](https://example.com)
 [Hacker News](https://news.ycombinator.com)
+```
+
+### Markdown Links w/ All Includes
+
+```
+# Window: 1526122566 #
+
+1. [Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/publish) Tab: 1526122657 (2026-08-02 18:11:11)
+2. [Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/best-listing) Tab: 1526122655 (2026-07-25 21:11:40)
+
+
+# Window: 1526122673 #
+
+1. [GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub](https://github.com/anthropics/claude-code) Tab: 1526122692 (2026-08-06 23:59:29)
+2. [Hacker News](https://news.ycombinator.com/) Tab: 1526122652 (2026-08-07 21:24:39)
+
+# Window: 1526122683 [incognito] #
+
+1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 1526122693 [Group: Extensions (green)] (2026-08-07 21:36:51)
+2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 1526122703 (Opened By: 1526122693) [Group: Extensions (green)] (2026-08-07 21:39:18)
+3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 1526122697 [Group: Extensions (green)] (2026-08-07 21:36:48)
 ```
 
 ### JSON Array
@@ -140,15 +268,100 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
 ]
 ```
 
+### JSON Array w/ Includes
+
+
+```json
+[
+  {
+    "index": 0,
+    "url": "https://developer.chrome.com/docs/extensions",
+    "windowId": 1526122683,
+    "groupId": 1676722781,
+    "id": 1526122693,
+    "openerTabId": "",
+    "tabGroup": {
+      "id": 1676722781,
+      "title": "Extensions",
+      "color": "green"
+    },
+    "incognito": true,
+    "lastAccessed": "2026-08-07 21:36:51"
+  },
+  {
+    "index": 1,
+    "url": "https://developer.chrome.com/docs/extensions/how-to",
+    "windowId": 1526122683,
+    "groupId": 1676722781,
+    "id": 1526122703,
+    "openerTabId": 1526122693,
+    "tabGroup": {
+      "id": 1676722781,
+      "title": "Extensions",
+      "color": "green"
+    },
+    "incognito": true,
+    "lastAccessed": "2026-08-07 21:39:18"
+  },
+  {
+    "index": 2,
+    "url": "https://stackoverflow.com/questions/tagged/google-chrome-extension",
+    "windowId": 1526122683,
+    "groupId": 1676722781,
+    "id": 1526122697,
+    "openerTabId": "",
+    "tabGroup": {
+      "id": 1676722781,
+      "title": "Extensions",
+      "color": "green"
+    },
+    "incognito": true,
+    "lastAccessed": "2026-08-07 21:36:48"
+  },
+  {
+    "index": 3,
+    "url": "https://www.typescriptlang.org/docs/",
+    "windowId": 1526122683,
+    "id": 1526122694,
+    "openerTabId": "",
+    "incognito": true,
+    "lastAccessed": "2026-08-07 00:00:32"
+  }
+]
+```
+
+
 ### CSV
 
-Outputs a header row (`title,url`) followed by one quoted row per tab. Open directly in Microsoft Excel, Google Sheets, or any CSV-compatible tool.
+Outputs a header row (`windowId,index,url,incognito,lastAccessed`) followed by one quoted row per tab. Open directly in Microsoft Excel, Google Sheets, or any CSV-compatible tool.
 
 ```csv
-title,url
-"GitHub","https://github.com"
-"Example Domain","https://example.com"
-"Hacker News","https://news.ycombinator.com"
+"windowId","index","url","incognito","lastAccessed"
+"1526122683","0","https://developer.chrome.com/docs/extensions","true","2026-08-07 21:36:51"
+"1526122683","1","https://developer.chrome.com/docs/extensions/how-to","true","2026-08-07 21:39:18"
+"1526122683","2","https://stackoverflow.com/questions/tagged/google-chrome-extension","true","2026-08-07 21:36:48"
+```
+
+### CSV w/ Includes
+
+Similar to the basic CSV output but includes additional columns.
+
+```csv
+"windowId","index","title","url","Tab Id","Opened By Tab Id","Group Id","Group Title","Group Color","incognito","lastAccessed"
+"1526122683","0","Chrome Extensions | Chrome for Developers","https://developer.chrome.com/docs/extensions","1526122693","","1676722781","Extensions","green","true","2026-08-07 21:36:51"
+"1526122683","1","Extensions / How to | Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","1526122703","1526122693","1676722781","Extensions","green","true","2026-08-07 21:39:18"
+"1526122683","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","1526122697","","1676722781","Extensions","green","true","2026-08-07 21:36:48"
+```
+
+### TSV
+
+Similar to CSV, but delimited by tabs.
+
+```tsv
+windowId	index	url	incognito	lastAccessed
+1526122683	0	https://developer.chrome.com/docs/extensions	true	2026-08-07 21:36:51
+1526122683	1	https://developer.chrome.com/docs/extensions/how-to	true	2026-08-07 21:39:18
+1526122683	2	https://stackoverflow.com/questions/tagged/google-chrome-extension	true	2026-08-07 21:36:48
 ```
 
 ---
@@ -161,7 +374,7 @@ title,url
 | Screenshot | Not selectable text, no clickable links |
 | Session manager extensions | Often require accounts or sync, large permission sets |
 | Manual copy-paste | Slow, error-prone for more than a handful of tabs |
-| **Safe Tab URL Lister** | **One click, 4 formats, zero tracking, no account needed** |
+| **Safe Tab URL Lister** | **One click, 4 formats to choose, zero tracking, no account needed** |
 
 ---
 
@@ -182,31 +395,34 @@ Built with Manifest V3. Works in any Chromium-based browser that supports MV3 ex
 
 ## Frequently Asked Questions
 
-**How do I copy all my open Chrome tab URLs at once?**
+**How do I copy all my open browser tab URLs at once?**
 Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab URLs from the current window are on your clipboard immediately.
 
-**Can I export Chrome tabs as Markdown links?**
+**Can I export browser tabs as Markdown links?**
 Yes. Select "Markdown links" from the format dropdown. The output will be a list of `[Page Title](URL)` entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor.
 
-**Is there a Chrome extension that exports tabs as JSON?**
+**Is there a browser extension that exports tabs as JSON?**
 Yes. Select the JSON format. The output is a JSON array where each element has a `title` and a `url` field.
 
 **Does this extension send my data anywhere?**
 No. There are zero network requests. The extension has no servers, no analytics, and no external dependencies of any kind. Your URLs never leave your device.
 
-**How do I save all Chrome tabs without using bookmarks?**
-Use Safe Tab URL Lister to copy your tabs as plain text or CSV, then paste into any text editor or spreadsheet for future reference.
+**How do I save all browser tabs without using bookmarks?**
+Use Safe Tab URL Lister to copy your tabs as plain text, Markdown, JSON, CSV, or TSV, then paste into any text editor or spreadsheet for future reference.
 
-**Can I get tab URLs from multiple Chrome windows?**
-Yes. Enable the "Include all windows" checkbox to collect tabs from every open Chrome window at once.
+**Can I get tab URLs from multiple browser windows?**
+Yes. Enable the "Include all windows" checkbox to collect tabs from every open browser window at once.
 
 **Does it work offline?**
 Yes, completely. The extension has no dependency on any external service.
 
-**Can I use this with Incognito tabs?**
-Chrome requires you to manually grant extensions access to Incognito mode. Go to `chrome://extensions`, find Safe Tab URL Lister, and enable "Allow in Incognito".
+**Can I use this with Incognito / Private tabs?**
+Browsers require you to manually grant extensions access to Incognito / Private windows. 
+ * Chrome: Go to `chrome://extensions`, find Safe Tab URL Lister, and enable "Allow in Incognito".
+ * Firefox: Go to `about:addons`, fine *Safe Tab URL Lister*, and allow "Run in Private Windows"
+ * Safari: From the Safari "Settings", select the "Extensions" and under *Private Browsing* enable "Allow in Private Browsing".
 
----
+ ---
 
 ## Development
 

@@ -13,8 +13,18 @@
   </header>
 
   <label class="row">
+    <span data-i18n="includeLabel"></span>
+
     <input type="checkbox" id="includeTitles">
     <span data-i18n="includeTitles"></span>
+    <input type="checkbox" id="includeIndex">
+    <span data-i18n="includeIndex"></span>
+    <input type="checkbox" id="includeLastAccess" class="noSafari">
+    <span data-i18n="includeLastAccess" class="noSafari"></span>
+    <input type="checkbox" id="includeTabIds">
+    <span data-i18n="includeTabIds"></span>
+    <input type="checkbox" id="includeGroup" class="noSafari">
+    <span data-i18n="includeGroup" class="noSafari"></span>
   </label>
 
   <label class="row">
@@ -27,8 +37,10 @@
     <select id="formatSelect">
       <option value="plain"    data-i18n="formatPlain"></option>
       <option value="markdown" data-i18n="formatMarkdown"></option>
+      <option value="markdown-list" data-i18n="formatMarkdownList"></option>
       <option value="json"     data-i18n="formatJson"></option>
       <option value="csv"      data-i18n="formatCsv"></option>
+      <option value="tsv"      data-i18n="formatTsv"></option>
     </select>
   </label>
 
