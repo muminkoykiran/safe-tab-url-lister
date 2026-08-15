@@ -45,9 +45,11 @@ do_pkg() {
         echo "Directory for $BROWSER not found"
         return
     fi
+    WORKDIR="$(pwd)"
     cd "$BASEDIR/dist/$BROWSER"
     # ../../ is because we are in ./dist/$BROWSER
-    zip -r "../../$EXTDIR/safe-tab-url-lister--$BROWSER-$VERSION.zip" ./
+    zip -r --quiet "../../$EXTDIR/safe-tab-url-lister-$BROWSER-$VERSION.zip" ./
+    cd "$WORKDIR"
 }
 
 if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "chrome" ]; then
@@ -55,8 +57,4 @@ if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "chrome" ]; then
 fi
 if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "firefox" ]; then
     do_pkg "firefox"
-fi
-if [ "$DOWHAT" = "all" ] || [ "$DOWHAT" = "safari" ]; then
-    # safari doesn't use these packages
-    #do_pkg "safari"
 fi

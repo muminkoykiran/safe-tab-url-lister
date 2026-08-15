@@ -51,24 +51,7 @@ node generate-icons.js
 * Version for the package files taken from the Chrome manifest file, though can also be supplied via the CLI (`./scripts/pkg.sh all 1.2.3`)
 * Does not create a zip file for Safari since it requires Xcode.
 * Both `build.sh` and `pkg.sh` will accept a browser name to only do that browser (`./scripts/build.sh firefox`)
-
-**Javascript build and package scripts:**
-
-* `node scripts/build.js` and `node scripts/pkg.js` also exist
-  * `pkg.js` requires archiver to be installed (`npm install archiver`)
-
-**Individual Browsers:**
-
-```bash
-node scripts/build.js
-node scripts/build.js chrome
-node scripts/build.js firefox
-node scripts/build.js safari
-
-node scripts/pkg.js
-node scripts/pkg.js chrome
-node scripts/pkg.js firefox
-```
+* pkg.sh does not do anything for Safari since it requires Xcode
 
 
 ## Code Style

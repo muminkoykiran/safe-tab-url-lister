@@ -5,7 +5,7 @@
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v1.0.1-blue?logo=google-chrome)](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif)
 [![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20TR-orange.svg)](_locales/)
 
-A free, open-source Chrome extension that collects every URL from your open tabs and copies them in the format you need — plain text, Markdown links, a JSON array, or CSV. No servers, no tracking, no accounts. Everything runs locally in your browser.
+A free, open-source Chrome, Firefox and Safari extension that collects every URL from your open tabs and copies them in the format you need — plain text, Markdown links, a JSON array, or CSV. No servers, no tracking, no accounts. Everything runs locally in your browser.
 
 ---
 
@@ -104,6 +104,36 @@ This extension is designed with a minimal-permission, zero-data-collection appro
 3. Enable **Developer mode** (top-right toggle)
 4. Click **Load unpacked** → select this folder
 
+### Firefox ###
+
+#### From Firefox Add On Store
+
+Not Yet Available
+
+#### Load Temporary Add On
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh firefox`
+3. Open `about:debugging#/runtime/this-firefox`
+4. Click the **Load Temporary Addon...** button
+5. Select the manifest.json file in the ./dist/firefox folder and click the **Open** button
+
+### Safari ###
+
+#### From Apple App Store
+
+Not Yet Available
+
+#### Load Temporary Extension (MacOS)
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh safari` 
+3. Open Safari Settings 
+4. If *Developer* features not enabled, click on the **Advanced** tab and enable **Show features for web developers**
+5. Click on the **Developer** tab
+6. Click on the **Add Temporary Extension** button
+7. Click **Select** after selecting the ./dist/safari folder
+
 ---
 
 ## Output Format Examples
@@ -176,35 +206,37 @@ Built with Manifest V3. Works in any Chromium-based browser that supports MV3 ex
 - Opera (with Chrome extension support enabled)
 - Firefox
 - Safari (MacOs and iOS)
-  - Last Accessed date and tab group information not available
 
 ---
 
 ## Frequently Asked Questions
 
-**How do I copy all my open Chrome tab URLs at once?**
+**How do I copy all my open browser tab URLs at once?**
 Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab URLs from the current window are on your clipboard immediately.
 
-**Can I export Chrome tabs as Markdown links?**
+**Can I export browser tabs as Markdown links?**
 Yes. Select "Markdown links" from the format dropdown. The output will be a list of `[Page Title](URL)` entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor.
 
-**Is there a Chrome extension that exports tabs as JSON?**
+**Is there a browser extension that exports tabs as JSON?**
 Yes. Select the JSON format. The output is a JSON array where each element has a `title` and a `url` field.
 
 **Does this extension send my data anywhere?**
 No. There are zero network requests. The extension has no servers, no analytics, and no external dependencies of any kind. Your URLs never leave your device.
 
-**How do I save all Chrome tabs without using bookmarks?**
-Use Safe Tab URL Lister to copy your tabs as plain text or CSV, then paste into any text editor or spreadsheet for future reference.
+**How do I save all browser tabs without using bookmarks?**
+Use Safe Tab URL Lister to copy your tabs as plain text, Markdown, JSON, CSV, or TSV, then paste into any text editor or spreadsheet for future reference.
 
-**Can I get tab URLs from multiple Chrome windows?**
-Yes. Enable the "Include all windows" checkbox to collect tabs from every open Chrome window at once.
+**Can I get tab URLs from multiple browser windows?**
+Yes. Enable the "Include all windows" checkbox to collect tabs from every open browser window at once.
 
 **Does it work offline?**
 Yes, completely. The extension has no dependency on any external service.
 
-**Can I use this with Incognito tabs?**
-Chrome requires you to manually grant extensions access to Incognito mode. Go to `chrome://extensions`, find Safe Tab URL Lister, and enable "Allow in Incognito".
+**Can I use this with Incognito / Private tabs?**
+Browsers require you to manually grant extensions access to Incognito / Private windows. 
+ * Chrome: Go to `chrome://extensions`, find Safe Tab URL Lister, and enable "Allow in Incognito".
+ * Firefox: Go to `about:addons`, fine *Safe Tab URL Lister*, and allow "Run in Private Windows"
+ * Safari: From the Safari "Settings", select the "Extensions" and under *Private Browsing* enable "Allow in Private Browsing".
 
 ---
 
