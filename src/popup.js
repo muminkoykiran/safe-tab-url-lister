@@ -562,7 +562,7 @@ function formatDateOrEmpty(value) {
     return ""
   }
 
-  const ds = new Date(value).toISOString().slice(0, 19).replace('T', ' ');
+  const ds = new Date(value).toISOString();
   return ds;
 }
 
