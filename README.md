@@ -159,6 +159,36 @@ Not Yet Available
 
 
 
+### Firefox ###
+
+#### From Firefox Add On Store
+
+Not Yet Available
+
+#### Load Temporary Add On
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh firefox`
+3. Open `about:debugging#/runtime/this-firefox`
+4. Click the **Load Temporary Addon...** button
+5. Select the manifest.json file in the ./dist/firefox folder and click the **Open** button
+
+### Safari ###
+
+#### From Apple App Store
+
+Not Yet Available
+
+#### Load Temporary Extension (MacOS)
+
+1. Clone or download this repository
+2. Build: `./scripts/build.sh safari` 
+3. Open Safari Settings 
+4. If *Developer* features not enabled, click on the **Advanced** tab and enable **Show features for web developers**
+5. Click on the **Developer** tab
+6. Click on the **Add Temporary Extension** button
+7. Click **Select** after selecting the ./dist/safari folder
+
 ---
 
 ## Output Format Examples

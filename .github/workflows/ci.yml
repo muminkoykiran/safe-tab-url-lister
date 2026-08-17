@@ -20,7 +20,7 @@ jobs:
           import json, sys
           browsers = ['chrome', 'firefox', 'safari', ]
           for browser in browsers:
-            with open('src/manifest/manifest.{}.json'.format(browser) as f:
+            with open('src/manifest/manifest.{}.json'.format(browser)) as f:
                 m = json.load(f)
             assert m['manifest_version'] == 3, 'Must be Manifest V3'
             assert 'name' in m, 'name required'
@@ -72,6 +72,7 @@ jobs:
 
       - name: Build zip (dry run)
         run: |
+          [ -f ./extensions/safe-tab-url-lister-chrome-test-build.zip ] && rm ./extensions/safe-tab-url-lister-chrome-test-build.zip 
           ./scripts/pkg.sh chrome test-build
-          ls -lh ./extensions/safe-tab-url-lister-test-build.zip
-          echo "Build OK"
+          ls -lh ./extensions/safe-tab-url-lister-chrome-test-build.zip
+          [ -f ./extensions/safe-tab-url-lister-chrome-test-build.zip ] && echo "Build OK" || (echo "Test Build Not Found" && exit 1)

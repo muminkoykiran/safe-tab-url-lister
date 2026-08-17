@@ -20,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Reorginize directory structure to support additional browsers
 - Add manifests for Firefox and Safari
-- Add Xcode project for Safari App/Extension support
 - Adjust code and CSS to support additional browsers
 
 
