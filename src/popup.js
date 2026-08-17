@@ -340,16 +340,20 @@ function formatDelimited(entries, options) {
   const {
     delimiter,
     withTitles,
+    withIndex,
     withTabIds,
     withGroup,
+    withLastAccess,
   } = options;
 
   const headers = [];
 
-  headers.push(
-    "windowId",
-    "index"
-  );
+  if (withIndex) {
+    headers.push(
+      "windowId",
+      "index"
+    );
+  }
 
   if (withTitles) {
     headers.push("title");
@@ -374,16 +378,24 @@ function formatDelimited(entries, options) {
 
   headers.push(
     "incognito",
-    "lastAccessed"
   );
+
+  if (withLastAccess) {
+    headers.push(
+      "lastAccessed"
+    );
+  }
 
   const rows = entries.map(({ tab, tabGroup }, index) => {
     const values = [];
 
-    values.push(
-      valueOrEmpty(tab.windowId),
-      tab.index
-    );
+
+    if (withIndex) {
+      values.push(
+        valueOrEmpty(tab.windowId),
+        tab.index
+      );
+    }
 
     if (withTitles) {
       values.push(tab.title || "");
@@ -408,8 +420,13 @@ function formatDelimited(entries, options) {
 
     values.push(
       valueOrEmpty(tab.incognito),
-      formatDateOrEmpty(tab.lastAccessed)
     );
+
+    if (withLastAccess) {
+      values.push(
+        formatDateOrEmpty(tab.lastAccessed)
+      );
+    }
 
     return values
       .map(value => escapeDelimitedValue(value, delimiter))
