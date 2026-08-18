@@ -11,8 +11,7 @@
     "128": "icons/icon128.png"
   },
   "permissions": [
-    "tabs",
-    "tabGroups"
+    "tabs"
   ],
   "browser_action": {
     "default_popup": "popup.html",

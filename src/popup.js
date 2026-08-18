@@ -87,9 +87,8 @@ async function formatTabs(tabs, format, options = {}) {
    * Create one normalized entry per tab. Property insertion order is:
    *
    * 1. IDs
-   * 2. Tab-group fields
-   * 3. Additional fields
-   * 4. Title and URL
+   * 2. Additional fields
+   * 3. Title and URL
    */
   const entries = await Promise.all(
     tabs.map(async tab => {
@@ -113,18 +112,6 @@ async function formatTabs(tabs, format, options = {}) {
         entry.openerTabId = valueOrEmpty(tab.openerTabId);
       }
 
-      if (withGroup) {
-        const tabGroup = await getTabGroup(tab);
-
-        if (tabGroup) {
-          entry.tabGroup = {
-            id: valueOrEmpty(tabGroup.id),
-            title: valueOrEmpty(tabGroup.title),
-            color: valueOrEmpty(tabGroup.color),
-          };
-        }
-      }
-
       if (withIndex) {
         entry.incognito = valueOrEmpty(tab.incognito);
       }
@@ -133,7 +120,6 @@ async function formatTabs(tabs, format, options = {}) {
       return {
         tab,
         entry,
-        tabGroup: entry.tabGroup || null,
       };
     })
   );
@@ -177,13 +163,8 @@ async function formatTabs(tabs, format, options = {}) {
             values.openerTabId = entry.openerTabId;
           }
 
-          if (withGroup && entry.groupId) {
+          if (withGroup && entry.groupId > 0) {
             values.groupId = entry.groupId;
-            values.tabGroup = {
-              id: entry.tabGroup.id,
-              title: entry.tabGroup?.title,
-              color:  entry.tabGroup?.color,
-            }
           }
 
           if (withIndex) {
@@ -239,7 +220,7 @@ function formatText(entries, format, options) {
   let previousWindowId;
   let listIndex = 0;
 
-  for (const { tab, tabGroup } of entries) {
+  for (const { tab } of entries) {
     if (allWindows && tab.windowId !== previousWindowId) {
       if (lines.length > 0 && format != "plain") {
         lines.push("");
@@ -275,11 +256,9 @@ function formatText(entries, format, options) {
         //sections.push("-");
       }
 
-      if (withGroup && tabGroup) {
+      if (withGroup && tab.groupId > 0) {
         sections.push(
-          `[Group: ` + //${!tabGroup.title ? valueOrEmpty(tabGroup.id)} : ""` +
-          `${escapeMarkdownText(tabGroup?.title || valueOrEmpty(tabGroup.id))} ` +
-          `(${valueOrEmpty(tabGroup?.color)})]`
+          `[Group: ${valueOrEmpty(tab.groupId)}]`
         );
       }
 
@@ -305,8 +284,8 @@ function formatText(entries, format, options) {
         }
       }
 
-      if (withGroup && tabGroup) {
-        lines.push(`    * Group: ${tabGroup.title || tabGroup.id}${tabGroup.title ? "" : valueOrEmpty(tabGroup.id)}${tabGroup.color ? " (" + valueOrEmpty(tabGroup.color) + ")" : ""}`
+      if (withGroup && tab.groupId > 0) {
+        lines.push(`    * Group: ${valueOrEmpty(tab.groupId)}`
         );
       }
 
@@ -341,8 +320,8 @@ function formatText(entries, format, options) {
         }
       }
 
-      if (withGroup && tabGroup) {
-        lines.push(`Group: ${tabGroup.title || tabGroup.id}${tabGroup.title ? "" : valueOrEmpty(tabGroup.id)}${tabGroup.color ? " (" + valueOrEmpty(tabGroup.color) + ")" : ""}`
+      if (withGroup && tab.groupId > 0) {
+        lines.push(`Group: ${valueOrEmpty(tab.groupId)}`
         );
       }
 
@@ -371,9 +350,7 @@ function formatText(entries, format, options) {
  * 3. index
  * 4. id
  * 5. openerTabId
- * 6. tabGroup.id
- * 7. tabGroup.title
- * 8. tabGroup.color
+ * 6. groupId
  * 9. hidden
  * 10. incognito
  * 11. lastAccessed
@@ -415,8 +392,6 @@ function formatDelimited(entries, options) {
   if (withGroup) {
     headers.push(
       "Group Id",
-      "Group Title",
-      "Group Color"
     );
   }
 
@@ -432,7 +407,7 @@ function formatDelimited(entries, options) {
     );
   }
 
-  const rows = entries.map(({ tab, tabGroup }, index) => {
+  const rows = entries.map(({ tab }, index) => {
     const values = [];
 
 
@@ -458,9 +433,7 @@ function formatDelimited(entries, options) {
 
     if (withGroup) {
       values.push(
-        valueOrEmpty(tabGroup?.id),
-        valueOrEmpty(tabGroup?.title),
-        valueOrEmpty(tabGroup?.color)
+        tab.groupId > 0 ? valueOrEmpty(tab.groupId) : "",
       );
     }
 
@@ -488,39 +461,6 @@ function formatDelimited(entries, options) {
   return [header, ...rows].join("\n");
 }
 
-
-/**
- * Retrieves a group only when:
- *
- * - group output is requested by the caller;
- * - the tab has a positive groupId;
- * - the browser exposes tabGroups.get().
- *
- * Unsupported browsers return null instead of throwing.
- */
-async function getTabGroup(tab) {
-  if (
-    !Number.isInteger(tab.groupId) ||
-    tab.groupId <= 0 ||
-    //!extensionApi.tabGroups ||
-    typeof extensionApi.tabGroups.get !== "function"
-  ) {
-    return null;
-  }
-
-  try {
-    return await callExtensionApi(
-      extensionApi.tabGroups,
-      "get",
-      tab.groupId
-    );
-  } catch (error) {
-    console.warn(
-      `Unable to retrieve tab group ${tab.groupId}:`, error);
-
-    return null;
-  }
-}
 
 
 function formatMarkdownLink(tab, withTitles) {

@@ -308,11 +308,6 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
     "groupId": 181,
     "id": 93,
     "openerTabId": "",
-    "tabGroup": {
-      "id": 181,
-      "title": "Extensions",
-      "color": "green"
-    },
     "incognito": true,
     "lastAccessed": "2026-08-07 21:36:51"
   },
@@ -323,11 +318,6 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
     "groupId": 181,
     "id": 103,
     "openerTabId": 93,
-    "tabGroup": {
-      "id": 181,
-      "title": "Extensions",
-      "color": "green"
-    },
     "incognito": true,
     "lastAccessed": "2026-08-07 21:39:18"
   },
@@ -338,11 +328,6 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
     "groupId": 181,
     "id": 97,
     "openerTabId": "",
-    "tabGroup": {
-      "id": 181,
-      "title": "Extensions",
-      "color": "green"
-    },
     "incognito": true,
     "lastAccessed": "2026-08-07 21:36:48"
   },
@@ -375,10 +360,10 @@ Outputs a header row (`windowId,index,url,incognito,lastAccessed`) followed by o
 Similar to the basic CSV output but includes additional columns.
 
 ```csv
-"windowId","index","title","url","Tab Id","Opened By Tab Id","Group Id","Group Title","Group Color","incognito","lastAccessed"
-"83","0","Chrome Extensions | Chrome for Developers","https://developer.chrome.com/docs/extensions","93","","181","Extensions","green","true","2026-08-07 21:36:51"
-"83","1","Extensions / How to | Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","103","93","181","Extensions","green","true","2026-08-07 21:39:18"
-"83","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","97","","181","Extensions","green","true","2026-08-07 21:36:48"
+"windowId","index","title","url","Tab Id","Opened By Tab Id","Group Id","incognito","lastAccessed"
+"83","0","Chrome Extensions | Chrome for Developers","https://developer.chrome.com/docs/extensions","93","","181","true","2026-08-07 21:36:51"
+"83","1","Extensions / How to | Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","103","93","181","true","2026-08-07 21:39:18"
+"83","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","97","","181","true","2026-08-07 21:36:48"
 ```
 
 ### TSV
