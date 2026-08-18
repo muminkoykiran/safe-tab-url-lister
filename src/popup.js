@@ -125,7 +125,9 @@ async function formatTabs(tabs, format, options = {}) {
         }
       }
 
-      entry.incognito = valueOrEmpty(tab.incognito);
+      if (withIndex) {
+        entry.incognito = valueOrEmpty(tab.incognito);
+      }
       entry.lastAccessed = formatDateOrEmpty(tab.lastAccessed);
 
       return {
@@ -184,7 +186,9 @@ async function formatTabs(tabs, format, options = {}) {
             }
           }
 
-          values.incognito = entry.incognito;
+          if (withIndex) {
+            values.incognito = entry.incognito;
+          }
 
           if (withLastAccess) {
             values.lastAccessed = entry.lastAccessed;
@@ -196,10 +200,6 @@ async function formatTabs(tabs, format, options = {}) {
         2
       );
       break;
-
-
-
-
 
     //case "markdown":
     //case "markdown-list":
@@ -243,11 +243,16 @@ function formatText(entries, format, options) {
     if (allWindows && tab.windowId !== previousWindowId) {
       if (lines.length > 0 && format != "plain") {
         lines.push("");
+      }
+      if (lines.length > 1) {
         lines.push("");
       }
 
-      //const windowHeader = tab.windowId + " " + tab.incognito ? " [incognito] #" : "";
-      lines.push(`# Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}#`);
+        if (withIndex) {
+        lines.push(`# Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}#`);
+      } else {
+        lines.push(`# Window #`);
+      }
       lines.push("");
 
       previousWindowId = tab.windowId;
@@ -415,9 +420,11 @@ function formatDelimited(entries, options) {
     );
   }
 
-  headers.push(
-    "incognito",
-  );
+  if (withIndex) {
+    headers.push(
+      "incognito",
+    );
+  }
 
   if (withLastAccess) {
     headers.push(
@@ -457,9 +464,11 @@ function formatDelimited(entries, options) {
       );
     }
 
-    values.push(
-      valueOrEmpty(tab.incognito),
-    );
+    if (withIndex) {
+      values.push(
+        valueOrEmpty(tab.incognito),
+      );
+    }
 
     if (withLastAccess) {
       values.push(
