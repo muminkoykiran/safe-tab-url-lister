@@ -156,11 +156,50 @@ async function formatTabs(tabs, format, options = {}) {
 
     case "json":
       return JSON.stringify(
-        entries.map(({ entry }) => entry),
+        entries.map(({ entry }) => {
+          const values = {
+            url: entry.url || tab.pendingUrl || ""
+          };
+
+          if (withIndex) {
+            values.windowId = entry.windowId;
+            values.index = entry.index;
+          }
+
+          if (withTitles) {
+            values.title = entry.title || "";
+          }
+
+          if (withTabIds) {
+            values.id = entry.id;
+            values.openerTabId = entry.openerTabId;
+          }
+
+          if (withGroup && entry.groupId) {
+            values.groupId = entry.groupId;
+            values.tabGroup = {
+              id: entry.tabGroup.id,
+              title: entry.tabGroup?.title,
+              color:  entry.tabGroup?.color,
+            }
+          }
+
+          values.incognito = entry.incognito;
+
+          if (withLastAccess) {
+            values.lastAccessed = entry.lastAccessed;
+          }
+
+          return values;
+        }),
         null,
         2
       );
       break;
+
+
+
+
 
     //case "markdown":
     //case "markdown-list":
