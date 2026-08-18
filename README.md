@@ -157,8 +157,6 @@ Not Yet Available
 5. Select the specific target and build.
 
 
-
-
 ### Firefox ###
 
 #### From Firefox Add On Store
@@ -212,44 +210,44 @@ https://news.ycombinator.com
 
 1. Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers
 https://developer.chrome.com/docs/webstore/publish
-Tab Id: 1526122657
+Tab Id: 57
 Last Accessed: 2026-08-02 18:11:11
 
 2. Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers
 https://developer.chrome.com/docs/webstore/best-listing
-Tab Id: 1526122655
+Tab Id: 55
 Last Accessed: 2026-07-25 21:11:40
 
-# Window: 1526122673 #
+# Window: 73 #
 
 1. GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub
 https://github.com/anthropics/claude-code
-Tab Id: 1526122692
+Tab Id: 92
 Last Accessed: 2026-08-06 23:59:29
 
 2. Hacker News
 https://news.ycombinator.com/
-Tab Id: 1526122652
+Tab Id: 52
 Last Accessed: 2026-08-07 21:24:39
 
-# Window: 1526122683 [incognito] #
+# Window: 83 [incognito] #
 
 1. Chrome Extensions  |  Chrome for Developers
 https://developer.chrome.com/docs/extensions
-Tab Id: 1526122693
+Tab Id: 93
 Group: Extensions (green)
 Last Accessed: 2026-08-07 21:36:51
 
 2. Extensions / How to  |  Chrome for Developers
 https://developer.chrome.com/docs/extensions/how-to
-Tab Id: 1526122703
-Opened By: 1526122693
+Tab Id: 103
+Opened By: 93
 Group: Extensions (green)
 Last Accessed: 2026-08-07 21:39:18
 
 3. Newest 'google-chrome-extension' Questions - Stack Overflow
 https://stackoverflow.com/questions/tagged/google-chrome-extension
-Tab Id: 1526122697
+Tab Id: 97
 Group: Extensions (green)
 Last Accessed: 2026-08-07 21:36:48
 ```
@@ -270,20 +268,20 @@ Outputs `[Page Title](URL)` for each tab. Paste directly into any Markdown edito
 ```
 # Window: 1526122566 #
 
-1. [Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/publish) Tab: 1526122657 (2026-08-02 18:11:11)
-2. [Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/best-listing) Tab: 1526122655 (2026-07-25 21:11:40)
+1. [Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/publish) Tab: 57 (2026-08-02 18:11:11)
+2. [Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/best-listing) Tab: 55 (2026-07-25 21:11:40)
 
 
-# Window: 1526122673 #
+# Window: 73 #
 
-1. [GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub](https://github.com/anthropics/claude-code) Tab: 1526122692 (2026-08-06 23:59:29)
-2. [Hacker News](https://news.ycombinator.com/) Tab: 1526122652 (2026-08-07 21:24:39)
+1. [GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub](https://github.com/anthropics/claude-code) Tab: 92 (2026-08-06 23:59:29)
+2. [Hacker News](https://news.ycombinator.com/) Tab: 52 (2026-08-07 21:24:39)
 
-# Window: 1526122683 [incognito] #
+# Window: 83 [incognito] #
 
-1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 1526122693 [Group: Extensions (green)] (2026-08-07 21:36:51)
-2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 1526122703 (Opened By: 1526122693) [Group: Extensions (green)] (2026-08-07 21:39:18)
-3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 1526122697 [Group: Extensions (green)] (2026-08-07 21:36:48)
+1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 93 [Group: Extensions (green)] (2026-08-07 21:36:51)
+2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 103 (Opened By: 93) [Group: Extensions (green)] (2026-08-07 21:39:18)
+3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 97 [Group: Extensions (green)] (2026-08-07 21:36:48)
 ```
 
 ### JSON Array
@@ -306,12 +304,12 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
   {
     "index": 0,
     "url": "https://developer.chrome.com/docs/extensions",
-    "windowId": 1526122683,
-    "groupId": 1676722781,
-    "id": 1526122693,
+    "windowId": 83,
+    "groupId": 181,
+    "id": 93,
     "openerTabId": "",
     "tabGroup": {
-      "id": 1676722781,
+      "id": 181,
       "title": "Extensions",
       "color": "green"
     },
@@ -321,12 +319,12 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
   {
     "index": 1,
     "url": "https://developer.chrome.com/docs/extensions/how-to",
-    "windowId": 1526122683,
-    "groupId": 1676722781,
-    "id": 1526122703,
-    "openerTabId": 1526122693,
+    "windowId": 83,
+    "groupId": 181,
+    "id": 103,
+    "openerTabId": 93,
     "tabGroup": {
-      "id": 1676722781,
+      "id": 181,
       "title": "Extensions",
       "color": "green"
     },
@@ -336,12 +334,12 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
   {
     "index": 2,
     "url": "https://stackoverflow.com/questions/tagged/google-chrome-extension",
-    "windowId": 1526122683,
-    "groupId": 1676722781,
-    "id": 1526122697,
+    "windowId": 83,
+    "groupId": 181,
+    "id": 97,
     "openerTabId": "",
     "tabGroup": {
-      "id": 1676722781,
+      "id": 181,
       "title": "Extensions",
       "color": "green"
     },
@@ -351,8 +349,8 @@ Outputs a JSON array of objects. Each object contains a `title` string and a `ur
   {
     "index": 3,
     "url": "https://www.typescriptlang.org/docs/",
-    "windowId": 1526122683,
-    "id": 1526122694,
+    "windowId": 83,
+    "id": 94,
     "openerTabId": "",
     "incognito": true,
     "lastAccessed": "2026-08-07 00:00:32"
@@ -367,9 +365,9 @@ Outputs a header row (`windowId,index,url,incognito,lastAccessed`) followed by o
 
 ```csv
 "windowId","index","url","incognito","lastAccessed"
-"1526122683","0","https://developer.chrome.com/docs/extensions","true","2026-08-07 21:36:51"
-"1526122683","1","https://developer.chrome.com/docs/extensions/how-to","true","2026-08-07 21:39:18"
-"1526122683","2","https://stackoverflow.com/questions/tagged/google-chrome-extension","true","2026-08-07 21:36:48"
+"83","0","https://developer.chrome.com/docs/extensions","true","2026-08-07 21:36:51"
+"83","1","https://developer.chrome.com/docs/extensions/how-to","true","2026-08-07 21:39:18"
+"83","2","https://stackoverflow.com/questions/tagged/google-chrome-extension","true","2026-08-07 21:36:48"
 ```
 
 ### CSV w/ Includes
@@ -378,20 +376,20 @@ Similar to the basic CSV output but includes additional columns.
 
 ```csv
 "windowId","index","title","url","Tab Id","Opened By Tab Id","Group Id","Group Title","Group Color","incognito","lastAccessed"
-"1526122683","0","Chrome Extensions | Chrome for Developers","https://developer.chrome.com/docs/extensions","1526122693","","1676722781","Extensions","green","true","2026-08-07 21:36:51"
-"1526122683","1","Extensions / How to | Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","1526122703","1526122693","1676722781","Extensions","green","true","2026-08-07 21:39:18"
-"1526122683","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","1526122697","","1676722781","Extensions","green","true","2026-08-07 21:36:48"
+"83","0","Chrome Extensions | Chrome for Developers","https://developer.chrome.com/docs/extensions","93","","181","Extensions","green","true","2026-08-07 21:36:51"
+"83","1","Extensions / How to | Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","103","93","181","Extensions","green","true","2026-08-07 21:39:18"
+"83","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","97","","181","Extensions","green","true","2026-08-07 21:36:48"
 ```
 
 ### TSV
 
-Similar to CSV, but delimited by tabs.
+Similar to CSV, but delimited by tabs; Include Index and Accessed.
 
 ```tsv
 windowId	index	url	incognito	lastAccessed
-1526122683	0	https://developer.chrome.com/docs/extensions	true	2026-08-07 21:36:51
-1526122683	1	https://developer.chrome.com/docs/extensions/how-to	true	2026-08-07 21:39:18
-1526122683	2	https://stackoverflow.com/questions/tagged/google-chrome-extension	true	2026-08-07 21:36:48
+83	0	https://developer.chrome.com/docs/extensions	true	2026-08-07 21:36:51
+83	1	https://developer.chrome.com/docs/extensions/how-to	true	2026-08-07 21:39:18
+83	2	https://stackoverflow.com/questions/tagged/google-chrome-extension	true	2026-08-07 21:36:48
 ```
 
 ---
