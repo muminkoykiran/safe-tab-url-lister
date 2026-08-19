@@ -4,7 +4,7 @@
     "description": "Extension name"
   },
   "appDescription": {
-    "message": "Copy all open tab URLs as plain text, Markdown, JSON, or CSV. Zero tracking, no servers, no accounts.",
+    "message": "Copy all open tab URLs as plain text, Markdown, JSON, CSV, or TSV. Zero tracking, no servers, no accounts.",
     "description": "Extension description shown in the Chrome Web Store"
   },
   "loading": {
@@ -18,9 +18,30 @@
       "count": { "content": "$1" }
     }
   },
+  "includeLabel": {
+    "message": "Include",
+    "description": "Items to include"
+  },
+
   "includeTitles": {
-    "message": "Include page titles",
+    "message": "Titles",
     "description": "Checkbox label for including page titles"
+  },
+  "includeIndex": {
+    "message": "Index",
+    "description": "Checkbox label for including tab index"
+  },
+  "includeLastAccess": {
+    "message": "Accessed",
+    "description": "Checkbox label for including last access"
+  },
+  "includeTabIds": {
+    "message": "IDs",
+    "description": "Checkbox label for including tab IDs"
+  },
+  "includeGroup": {
+    "message": "Group",
+    "description": "Checkbox label for including tab group"
   },
   "allWindows": {
     "message": "Include all windows",
@@ -35,8 +56,12 @@
     "description": "Format option: plain URLs"
   },
   "formatMarkdown": {
-    "message": "Markdown links",
+    "message": "Markdown",
     "description": "Format option: Markdown [title](url)"
+  },
+  "formatMarkdownList": {
+    "message": "Markdown w/ List",
+    "description": "Format option: Markdown w/List [title](url)\\n  * ID: id"
   },
   "formatJson": {
     "message": "JSON",
@@ -45,6 +70,10 @@
   "formatCsv": {
     "message": "CSV",
     "description": "Format option: CSV"
+  },
+  "formatTsv": {
+    "message": "TSV",
+    "description": "Format option: TSV"
   },
   "outputAriaLabel": {
     "message": "Tab URL list, read-only",

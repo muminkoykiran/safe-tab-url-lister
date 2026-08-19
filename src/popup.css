@@ -11,10 +11,18 @@ body {
   color: #111827;
 }
 
+/* width on ipad not correct */
 @supports (-webkit-touch-callout: none) {
     body {
       width: 400px;
       max-width: none;
+    }
+}
+
+/* safari doesn't support tabgroups.get(), nor include lastAccessed with tabs */
+@supports (font: -apple-system-body) {
+    .noSafari {
+        display: none;
     }
 }
 
@@ -74,7 +82,7 @@ textarea {
 }
 
 @supports (-webkit-touch-callout: none) {
-    /* on iPhone, buttons don't show */
+    /* on iPhone, buttons don't show; make text shorter */
     textarea {
       height: 200px;
     }

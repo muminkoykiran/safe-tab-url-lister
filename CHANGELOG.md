@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2026-08-12
+
+## [1.2.0] - 2026-08-10
+### Changed
+- Add Markdown List and TSV Output options
+- Add include options for tab index, ids and groups
+- Add include option for last accessed date
+- Additional escaping of CSV (and TSV) and Markdown outputs
+- Added requirement for TabGroups permissions
+- If All Windows is selected, include Window header between links for different Windows
+
+
+## [1.1.0] - 2026-08-07
 ### Changed
 - Reorginize directory structure to support additional browsers
 - Add manifests for Firefox and Safari

@@ -12,11 +12,31 @@
     <small id="count" aria-live="polite" aria-atomic="true" data-i18n="loading"></small>
   </header>
 
-  <label class="row">
-    <input type="checkbox" id="includeTitles">
-    <span data-i18n="includeTitles"></span>
-  </label>
-
+  <div class="row">
+    <label>
+        <span data-i18n="includeLabel"></span>
+    </label>
+    <label>
+        <input type="checkbox" id="includeTitles">
+        <span data-i18n="includeTitles"></span>
+    </label>
+    <label>
+        <input type="checkbox" id="includeIndex">
+        <span data-i18n="includeIndex"></span>
+    </label>
+    <label>
+        <input type="checkbox" id="includeLastAccess" class="noSafari">
+        <span data-i18n="includeLastAccess" class="noSafari"></span>
+    </label>
+    <label>
+        <input type="checkbox" id="includeTabIds">
+        <span data-i18n="includeTabIds"></span>
+    </label>
+    <label>
+        <input type="checkbox" id="includeGroup" class="noSafari">
+        <span data-i18n="includeGroup" class="noSafari"></span>
+    </label>
+  </div>
   <label class="row">
     <input type="checkbox" id="allWindows">
     <span data-i18n="allWindows"></span>
@@ -27,8 +47,10 @@
     <select id="formatSelect">
       <option value="plain"    data-i18n="formatPlain"></option>
       <option value="markdown" data-i18n="formatMarkdown"></option>
+      <option value="markdown-list" data-i18n="formatMarkdownList"></option>
       <option value="json"     data-i18n="formatJson"></option>
       <option value="csv"      data-i18n="formatCsv"></option>
+      <option value="tsv"      data-i18n="formatTsv"></option>
     </select>
   </label>
 

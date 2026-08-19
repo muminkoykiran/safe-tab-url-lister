@@ -18,9 +18,29 @@
       "count": { "content": "$1" }
     }
   },
+  "includeLabel": {
+    "message": "Dahil Et",
+    "description": "Items to include"
+  },
   "includeTitles": {
-    "message": "Başlıkları da ekle",
+    "message": "Başlıklar",
     "description": "Sayfa başlıklarını ekleme onay kutusu"
+  },
+  "includeIndex": {
+    "message": "Dizin",
+    "description": "Checkbox label for including tab index"
+  },
+  "includeLastAccess": {
+    "message": "Erişildi",
+    "description": "Checkbox label for including last access"
+  },
+  "includeTabIds": {
+    "message": "Kimlikler",
+    "description": "Checkbox label for including tab IDs"
+  },
+  "includeGroup": {
+    "message": "Grup",
+    "description": "Checkbox label for including tab group"
   },
   "allWindows": {
     "message": "Tüm pencereleri dahil et",
@@ -38,6 +58,10 @@
     "message": "Markdown bağlantısı",
     "description": "Format seçeneği: Markdown [başlık](url)"
   },
+  "formatMarkdownList": {
+    "message": "Listeli Markdown",
+    "description": "Format seçeneği: Markdown w/ List [title](url)\\n  * ID: id"
+  },
   "formatJson": {
     "message": "JSON",
     "description": "Format seçeneği: JSON dizisi"
@@ -45,6 +69,10 @@
   "formatCsv": {
     "message": "CSV",
     "description": "Format seçeneği: CSV"
+  },
+  "formatTsv": {
+    "message": "TSV",
+    "description": "Format option: TSV"
   },
   "outputAriaLabel": {
     "message": "Sekme URL listesi, salt okunur",
