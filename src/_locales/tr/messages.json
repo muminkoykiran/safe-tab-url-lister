@@ -19,28 +19,28 @@
     }
   },
   "includeLabel": {
-    "message": "Dahil Et",
-    "description": "Items to include"
+    "message": "Dahil edilecekler:",
+    "description": "Onay kutusu grubunun başlığı"
   },
   "includeTitles": {
     "message": "Başlıklar",
     "description": "Sayfa başlıklarını ekleme onay kutusu"
   },
   "includeIndex": {
-    "message": "Dizin",
-    "description": "Checkbox label for including tab index"
+    "message": "Sıra",
+    "description": "Onay kutusu etiketi: sekme sırasını dahil et"
   },
   "includeLastAccess": {
-    "message": "Erişildi",
-    "description": "Checkbox label for including last access"
+    "message": "Son erişim",
+    "description": "Onay kutusu etiketi: son erişim zamanını dahil et"
   },
   "includeTabIds": {
-    "message": "Kimlikler",
-    "description": "Checkbox label for including tab IDs"
+    "message": "Sekme no",
+    "description": "Onay kutusu etiketi: sekme numaralarını dahil et"
   },
   "includeGroup": {
     "message": "Grup",
-    "description": "Checkbox label for including tab group"
+    "description": "Onay kutusu etiketi: sekme grubunu dahil et"
   },
   "allWindows": {
     "message": "Tüm pencereleri dahil et",
@@ -60,7 +60,7 @@
   },
   "formatMarkdownList": {
     "message": "Listeli Markdown",
-    "description": "Format seçeneği: Markdown w/ List [title](url)\\n  * ID: id"
+    "description": "Format seçeneği: madde işaretli liste olarak Markdown"
   },
   "formatJson": {
     "message": "JSON",
@@ -72,7 +72,7 @@
   },
   "formatTsv": {
     "message": "TSV",
-    "description": "Format option: TSV"
+    "description": "Format seçeneği: TSV (sekmeyle ayrılmış değerler)"
   },
   "outputAriaLabel": {
     "message": "Sekme URL listesi, salt okunur",
