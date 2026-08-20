@@ -508,18 +508,12 @@ function getHostname(url) {
 
 function escapeDelimitedValue(value, delimiter) {
 
-  let text = String(value ?? "");
-
-  // add
-  if (delimiter === "\t") {
-    text = text.replace(/^([=+\-@\t\r])/, "'$1");
-  }
-
   /*
    * Preserve each record as one physical line
    * Tabs, newlines, and backslashes are escaped.
    */
-  text = text
+  const text = String(value ?? "")
+    .replace(/^([=+\-@\t\r])/, "'$1")
     .replace(/\\/g, "\\\\")
     .replace(/\t/g, "\\t")
     .replace(/\r/g, "\\r")
