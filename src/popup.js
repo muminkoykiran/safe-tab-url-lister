@@ -146,7 +146,7 @@ async function formatTabs(tabs, format, options = {}) {
       return JSON.stringify(
         entries.map(({ entry }) => {
           const values = {
-            url: entry.url || tab.pendingUrl || ""
+            url: entry.url || ""
           };
 
           if (withIndex) {
