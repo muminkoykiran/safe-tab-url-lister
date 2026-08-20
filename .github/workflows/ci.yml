@@ -54,7 +54,7 @@ jobs:
 
       - name: Check required files
         run: |
-          for f in build.sh pkg.sh create-icons.js; do
+          for f in build.sh pkg.sh generate-icons.js; do
             [ -f "scripts/$f" ] && echo "OK: $f" || (echo "MISSING: scripts/$f" && exit 1)
           done
           for f in LICENSE README.md CHANGELOG.md; do
