@@ -22,7 +22,7 @@ Safe Tab URL Lister solves this in one click. Click the icon, choose your format
 | Property | Value |
 |---|---|
 | Output formats | Plain URLs, Markdown links, JSON array, CSV, TSV |
-| Permissions required | `tabs` and `tabGroups` only |
+| Permissions required | `tabs` |
 | Network requests | Zero |
 | Data collection | None |
 | Price | Free |
@@ -61,7 +61,7 @@ Safe Tab URL Lister solves this in one click. Click the icon, choose your format
 - **Dark mode** support (follows system preference)
 - **Keyboard accessible** (WCAG 2.1 AA)
 - **Bilingual** — English and Turkish
-- **Safari Limitations** The Safari browser does not support providing the *Last Accessed* or *Tab Group* information.
+- **Safari Limitations** The Safari browser does not support providing the *Last Accessed* 
 
 ---
 
@@ -279,9 +279,9 @@ Outputs `[Page Title](URL)` for each tab. Paste directly into any Markdown edito
 
 # Window: 83 [incognito] #
 
-1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 93 [Group: Extensions (green)] (2026-08-07 21:36:51)
-2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 103 (Opened By: 93) [Group: Extensions (green)] (2026-08-07 21:39:18)
-3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 97 [Group: Extensions (green)] (2026-08-07 21:36:48)
+1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 93 [Group: 73] (2026-08-07 21:36:51)
+2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 103 (Opened By: 93) [Group: 73] (2026-08-07 21:39:18)
+3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 97 [Group: 73] (2026-08-07 21:36:48)
 ```
 
 ### JSON Array
@@ -402,7 +402,7 @@ Built with Manifest V3. Works in any Chromium-based browser that supports MV3 ex
 - Opera (with Chrome extension support enabled)
 - Firefox
 - Safari (MacOs and iOS)
-  - Last Accessed date and tab group information not available
+  - Last Accessed date 
 
 ---
 
