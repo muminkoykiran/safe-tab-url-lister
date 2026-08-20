@@ -112,7 +112,7 @@ async function formatTabs(tabs, format, options = {}) {
         entry.openerTabId = valueOrEmpty(tab.openerTabId);
       }
 
-      if (withIndex) {
+      if (allWindows) {
         entry.incognito = valueOrEmpty(tab.incognito);
       }
       entry.lastAccessed = formatDateOrEmpty(tab.lastAccessed);
@@ -139,6 +139,7 @@ async function formatTabs(tabs, format, options = {}) {
         withLastAccess,
         withTabIds,
         withGroup,
+        allWindows,
       });
       break;
 
@@ -149,8 +150,10 @@ async function formatTabs(tabs, format, options = {}) {
             url: entry.url || ""
           };
 
-          if (withIndex) {
+          if (allWindows) {
             values.windowId = entry.windowId;
+          }
+          if (withIndex) {
             values.index = entry.index;
           }
 
@@ -167,7 +170,7 @@ async function formatTabs(tabs, format, options = {}) {
             values.groupId = entry.groupId;
           }
 
-          if (withIndex) {
+          if (allWindows) {
             values.incognito = entry.incognito;
           }
 
@@ -229,7 +232,7 @@ function formatText(entries, format, options) {
         lines.push("");
       }
 
-        if (withIndex) {
+      if (allWindows) {
         lines.push(`# Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}#`);
       } else {
         lines.push(`# Window #`);
@@ -365,13 +368,19 @@ function formatDelimited(entries, options) {
     withTabIds,
     withGroup,
     withLastAccess,
+    allWindows
   } = options;
 
   const headers = [];
 
+  if (allWindows) {
+    headers.push(
+      "windowId"
+    );
+  }
+
   if (withIndex) {
     headers.push(
-      "windowId",
       "index"
     );
   }
@@ -395,7 +404,7 @@ function formatDelimited(entries, options) {
     );
   }
 
-  if (withIndex) {
+  if (allWindows) {
     headers.push(
       "incognito",
     );
@@ -410,10 +419,14 @@ function formatDelimited(entries, options) {
   const rows = entries.map(({ tab }, index) => {
     const values = [];
 
+    if (allWindows) {
+      values.push(
+        valueOrEmpty(tab.windowId)
+      );
+    }
 
     if (withIndex) {
       values.push(
-        valueOrEmpty(tab.windowId),
         tab.index
       );
     }
@@ -437,7 +450,7 @@ function formatDelimited(entries, options) {
       );
     }
 
-    if (withIndex) {
+    if (allWindows) {
       values.push(
         valueOrEmpty(tab.incognito),
       );
