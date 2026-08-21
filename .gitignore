@@ -2,10 +2,14 @@
 *.zip
 safe-tab-url-lister-v*.zip
 
+dist/
+extensions/
+
 # Generated screenshots (not part of source)
 *.png
-!icons/*.png
+!src/icons/*.png
 !docs/screenshots/*.png
+!xcode/Safe Tab URL Lister/Shared (App)/Resources/icon.png
 
 # Playwright MCP cache
 .playwright-mcp/
