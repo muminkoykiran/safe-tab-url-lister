@@ -12,7 +12,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add include options for tab index, ids and groups
 - Add include option for last accessed date
 - Additional escaping of CSV (and TSV) and Markdown outputs
-- Added requirement for TabGroups permissions
 - If All Windows is selected, include Window header between links for different Windows
 
 
