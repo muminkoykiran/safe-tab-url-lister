@@ -87,7 +87,7 @@ This extension is designed with a minimal-permission, zero-data-collection appro
 
 | What | Status |
 |------|--------|
-| Permissions | Only `tabs` and `tabsGroups` — nothing else |
+| Permissions | Only `tabs` — nothing else |
 | `host_permissions` | None |
 | Background service worker | None |
 | Network requests | None |
