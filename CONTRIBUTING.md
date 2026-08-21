@@ -25,15 +25,16 @@ Open an issue with the `enhancement` label. Describe the use case clearly — th
 
 **Load the extension unpacked:**
 
-1. Open `chrome://extensions/`
-2. Enable **Developer mode** (top-right toggle)
-3. Click **Load unpacked** → select this project folder
-4. The extension icon appears in the toolbar
+1. Run `./scripts/build.sh chrome` to assemble a loadable copy in `dist/chrome`
+2. Open `chrome://extensions/`
+3. Enable **Developer mode** (top-right toggle)
+4. Click **Load unpacked** → select the `dist/chrome` folder
+5. The extension icon appears in the toolbar
 
 **Regenerate icons** (only needed if you change the icon design):
 
 ```bash
-node generate-icons.js
+node scripts/generate-icons.js
 ```
 
 **Build the browser specific files:**
@@ -58,7 +59,7 @@ node generate-icons.js
 
 - Vanilla JS — no build tools, no bundlers, no npm dependencies
 - Manifest V3
-- All UI strings go through `chrome.i18n` (`_locales/en/messages.json`)
+- All UI strings go through `chrome.i18n` (`src/_locales/en/messages.json`)
 - WCAG 2.1 AA accessibility for all interactive elements
 
 ## License
