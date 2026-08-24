@@ -233,9 +233,7 @@ function formatText(entries, format, options) {
       }
 
       if (allWindows) {
-        lines.push(`# Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}#`);
-      } else {
-        lines.push(`# Window #`);
+        lines.push(`Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}#`);
       }
       lines.push("");
 
@@ -294,9 +292,12 @@ function formatText(entries, format, options) {
 
 
       if (withLastAccess) {
-        lines.push(
-          `    * Last Accessed: ${formatDateOrEmpty(tab.lastAccessed)}`
-        );
+        const lastAccessedStr = formatDateOrEmpty(tab.lastAccessed);
+        if (lastAccessedStr != "") {
+          lines.push(
+            `    * Last Accessed: ${lastAccessedStr}`
+          );
+        }
       }
 
     } else {
@@ -514,12 +515,7 @@ function escapeDelimitedValue(value, delimiter) {
    */
   const text = String(value ?? "")
     .replace(/^([=+\-@\t\r])/, "'$1")
-    .replace(/\\/g, "\\\\")
-    .replace(/\t/g, "\\t")
-    .replace(/\r/g, "\\r")
-    .replace(/\n/g, "\\n");
-
-
+    .replace(/([\\\t\r\n])/g, "\\$1");
 
   if (delimiter === ",") {
     return `"${text.replace(/"/g, '""')}"`;
@@ -531,9 +527,7 @@ function escapeDelimitedValue(value, delimiter) {
 
 function escapeMarkdownText(value) {
   return String(value ?? "")
-    .replace(/\\/g, "\\\\")
-    .replace(/\[/g, "\\[")
-    .replace(/\]/g, "\\]")
+    .replace(/([\\\(\)\[\]`<>"])/g, "\\$1")
     .replace(/\r?\n/g, " ");
 }
 
