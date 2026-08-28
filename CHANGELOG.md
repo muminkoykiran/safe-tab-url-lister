@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Firefox manifest's `strict_min_version` was `109.0`, but the `data_collection_permissions`
   key it also declares requires Firefox 140+ (142+ on Android) — `web-ext lint` flagged this
-  before the first AMO submission went out. Bumped to `140.0`.
+  before the first AMO submission went out. Bumped to `142.0` to clear both platforms.
 
 
 ## [1.2.0] - 2026-08-29
