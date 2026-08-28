@@ -4,7 +4,7 @@
     "description": "Eklenti adı"
   },
   "appDescription": {
-    "message": "Tüm sekme URL'lerini yerel olarak listele ve kopyala. İzleme yok, sunucu yok, minimum izin.",
+    "message": "Açık sekme URL'lerinin tümünü düz metin, Markdown, JSON, CSV veya TSV olarak kopyalayın. İzleme yok, sunucu yok, hesap yok.",
     "description": "Chrome Web Store'da gösterilen eklenti açıklaması"
   },
   "loading": {
