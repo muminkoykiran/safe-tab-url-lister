@@ -4,7 +4,7 @@
     "description": "Eklenti adı"
   },
   "appDescription": {
-    "message": "Tüm sekme URL'lerini yerel olarak listele ve kopyala. İzleme yok, sunucu yok, minimum izin.",
+    "message": "Açık sekme URL'lerinin tümünü düz metin, Markdown, JSON, CSV veya TSV olarak kopyalayın. İzleme yok, sunucu yok, hesap yok.",
     "description": "Chrome Web Store'da gösterilen eklenti açıklaması"
   },
   "loading": {
@@ -18,9 +18,29 @@
       "count": { "content": "$1" }
     }
   },
+  "includeLabel": {
+    "message": "Dahil edilecekler:",
+    "description": "Onay kutusu grubunun başlığı"
+  },
   "includeTitles": {
-    "message": "Başlıkları da ekle",
+    "message": "Başlıklar",
     "description": "Sayfa başlıklarını ekleme onay kutusu"
+  },
+  "includeIndex": {
+    "message": "Sıra",
+    "description": "Onay kutusu etiketi: sekme sırasını dahil et"
+  },
+  "includeLastAccess": {
+    "message": "Son erişim",
+    "description": "Onay kutusu etiketi: son erişim zamanını dahil et"
+  },
+  "includeTabIds": {
+    "message": "Sekme no",
+    "description": "Onay kutusu etiketi: sekme numaralarını dahil et"
+  },
+  "includeGroup": {
+    "message": "Grup",
+    "description": "Onay kutusu etiketi: sekme grubunu dahil et"
   },
   "allWindows": {
     "message": "Tüm pencereleri dahil et",
@@ -38,6 +58,10 @@
     "message": "Markdown bağlantısı",
     "description": "Format seçeneği: Markdown [başlık](url)"
   },
+  "formatMarkdownList": {
+    "message": "Listeli Markdown",
+    "description": "Format seçeneği: madde işaretli liste olarak Markdown"
+  },
   "formatJson": {
     "message": "JSON",
     "description": "Format seçeneği: JSON dizisi"
@@ -45,6 +69,10 @@
   "formatCsv": {
     "message": "CSV",
     "description": "Format seçeneği: CSV"
+  },
+  "formatTsv": {
+    "message": "TSV",
+    "description": "Format seçeneği: TSV (sekmeyle ayrılmış değerler)"
   },
   "outputAriaLabel": {
     "message": "Sekme URL listesi, salt okunur",
