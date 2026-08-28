@@ -233,7 +233,7 @@ function formatText(entries, format, options) {
       }
 
       if (allWindows) {
-        lines.push(`Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}#`);
+        lines.push(`Window: ${tab.windowId} ${tab.incognito ? "[incognito] " : ""}`.trimEnd());
       }
       lines.push("");
 
