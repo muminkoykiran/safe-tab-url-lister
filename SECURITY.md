@@ -4,7 +4,8 @@
 
 | Version | Supported |
 |---------|-----------|
-| 1.0.x   | Yes       |
+| 1.2.x   | Yes       |
+| < 1.2   | No        |
 
 ## Reporting a Vulnerability
 
@@ -28,4 +29,5 @@ This extension is designed to minimize attack surface:
 - **No `storage` permission** — nothing is persisted
 - **No `background` service worker** — runs only when popup is open
 - **No external scripts** — zero CDN or third-party JS
-- **Only `tabs` permission** — reads URL and title of open tabs
+- **Only `tabs` permission** — reads the URL, title, index, tab/opener/group IDs, last-accessed
+  time, and incognito flag of open tabs, all in memory only, discarded when the popup closes

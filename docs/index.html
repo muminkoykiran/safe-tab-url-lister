@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safe Tab URL Lister — Copy All Chrome Tab URLs Instantly</title>
-  <meta name="description" content="Free, open-source Chrome extension. Export all open tab URLs as plain text, Markdown links, JSON, or CSV. Zero tracking. One click." />
-  <meta name="keywords" content="Chrome extension, tab URL exporter, copy tab URLs, export tabs markdown, tabs to JSON, tab list CSV, privacy Chrome extension, open source tab manager" />
-  <link rel="canonical" href="https://muminkoykiran.github.io/safe-tab-url-lister/" />
+  <meta name="description" content="Free, open-source Chrome, Firefox and Safari extension. Export all open tab URLs as plain text, Markdown, JSON, CSV, or TSV. Zero tracking. One click." />
+  <meta name="keywords" content="Chrome extension, Firefox extension, Safari extension, tab URL exporter, copy tab URLs, export tabs markdown, tabs to JSON, tab list CSV, tabs to TSV, export tab IDs, tab group export, privacy Chrome extension, open source tab manager" />
+  <link rel="canonical" href="https://muminkoykiran.com.tr/safe-tab-url-lister/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Safe Tab URL Lister — Copy All Chrome Tab URLs Instantly" />
-  <meta property="og:description" content="Free, open-source Chrome extension. Export all open tab URLs as plain text, Markdown links, JSON, or CSV. Zero tracking. One click." />
-  <meta property="og:url" content="https://muminkoykiran.github.io/safe-tab-url-lister/" />
+  <meta property="og:description" content="Free, open-source Chrome, Firefox and Safari extension. Export all open tab URLs as plain text, Markdown, JSON, CSV, or TSV. Zero tracking. One click." />
+  <meta property="og:url" content="https://muminkoykiran.com.tr/safe-tab-url-lister/" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Safe Tab URL Lister — Copy All Chrome Tab URLs Instantly" />
-  <meta name="twitter:description" content="Free, open-source Chrome extension. Export all open tab URLs as plain text, Markdown links, JSON, or CSV. Zero tracking. One click." />
+  <meta name="twitter:description" content="Free, open-source Chrome, Firefox and Safari extension. Export all open tab URLs as plain text, Markdown, JSON, CSV, or TSV. Zero tracking. One click." />
 
   <!-- SoftwareApplication JSON-LD -->
   <script type="application/ld+json">
@@ -27,13 +27,13 @@
     "name": "Safe Tab URL Lister",
     "applicationCategory": "BrowserApplication",
     "applicationSubCategory": "Productivity",
-    "operatingSystem": "Chrome, Edge, Brave, Vivaldi",
-    "description": "A free, open-source Chrome extension that lists all open tab URLs and exports them as plain text, Markdown links, a JSON array, or CSV. Zero network requests, no tracking, no accounts required.",
+    "operatingSystem": "Chrome, Edge, Brave, Vivaldi, Firefox, Safari",
+    "description": "A free, open-source Chrome, Firefox and Safari extension that lists all open tab URLs and exports them as plain text, Markdown, a JSON array, CSV, or TSV. Zero network requests, no tracking, no accounts required.",
     "featureList": [
-      "Export all Chrome tab URLs in one click",
-      "Output formats: Plain URLs, Markdown links, JSON array, CSV",
-      "Include or exclude page titles",
-      "Current window or all windows",
+      "Export all open tab URLs in one click",
+      "Output formats: Plain URLs, Markdown links, Markdown list, JSON array, CSV, TSV",
+      "Include or exclude page titles, tab index, tab/opener IDs, tab group, and last-accessed time",
+      "Current window or all windows, with per-window headers",
       "Dark mode support",
       "WCAG 2.1 AA keyboard accessibility",
       "Available in English and Turkish",
@@ -44,14 +44,14 @@
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
     "downloadUrl": "https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif",
     "installUrl": "https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif",
-    "softwareVersion": "1.0.1",
+    "softwareVersion": "1.2.0",
     "datePublished": "2026-06-07",
     "codeRepository": "https://github.com/muminkoykiran/safe-tab-url-lister",
     "license": "https://opensource.org/licenses/MIT",
     "author": {"@type": "Person", "name": "Mümin Köykıran"},
     "inLanguage": ["en", "tr"],
     "isAccessibleForFree": true,
-    "keywords": "Chrome extension, tab URL exporter, copy tab URLs, export tabs markdown, tabs to JSON, tab list CSV, privacy Chrome extension, open source tab manager"
+    "keywords": "Chrome extension, Firefox extension, Safari extension, tab URL exporter, copy tab URLs, export tabs markdown, tabs to JSON, tab list CSV, tabs to TSV, privacy Chrome extension, open source tab manager"
   }
   </script>
 
@@ -63,26 +63,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I copy all my open Chrome tab URLs at once?",
+        "name": "How do I copy all my open browser tab URLs at once?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab URLs from the current window are on your clipboard immediately."
+          "text": "Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab URLs from the current window are on your clipboard immediately. It works the same way in Chrome, Firefox, and Safari."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I export Chrome tabs as Markdown links?",
+        "name": "Can I export browser tabs as Markdown links?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Select \"Markdown links\" from the format dropdown. The output will be [Page Title](URL) entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor."
+          "text": "Yes. Select \"Markdown\" from the format dropdown. The output will be [Page Title](URL) entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor. A \"Markdown list\" variant is also available for bullet-list output with extra fields as sub-bullets."
         }
       },
       {
         "@type": "Question",
-        "name": "Is there a Chrome extension that exports tabs as JSON?",
+        "name": "Is there a browser extension that exports tabs as JSON, CSV, or TSV?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Select the JSON format. The output is a JSON array where each element has a title and url field."
+          "text": "Yes. Select JSON, CSV, or TSV from the format dropdown. Each includes a url field by default, plus title, tab index, tab/opener IDs, tab group, and last-accessed time when you check their options."
         }
       },
       {
@@ -95,10 +95,10 @@
       },
       {
         "@type": "Question",
-        "name": "Can I export tabs from all Chrome windows at once?",
+        "name": "Can I export tabs from all open windows at once?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Enable the \"Include all windows\" checkbox to collect tabs from every open Chrome window simultaneously."
+          "text": "Yes. Enable the \"Include all windows\" checkbox to collect tabs from every open window at once. Output is grouped into a section per window, with incognito windows flagged."
         }
       },
       {
@@ -423,14 +423,18 @@
     }
     .label-plain  { background: #dbeafe; color: #1e40af; }
     .label-md     { background: #ede9fe; color: #5b21b6; }
+    .label-mdlist { background: #fae8ff; color: #86198f; }
     .label-json   { background: #fef3c7; color: #92400e; }
     .label-csv    { background: #dcfce7; color: #166534; }
+    .label-tsv    { background: #ffe4e6; color: #9f1239; }
 
     @media (prefers-color-scheme: dark) {
       .label-plain  { background: #1e3a5f; color: #93c5fd; }
       .label-md     { background: #2e1065; color: #c4b5fd; }
+      .label-mdlist { background: #581c87; color: #f5d0fe; }
       .label-json   { background: #422006; color: #fcd34d; }
       .label-csv    { background: #064e3b; color: #6ee7b7; }
+      .label-tsv    { background: #4c0519; color: #fda4af; }
     }
 
     .format-card pre {
@@ -609,12 +613,12 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
         <h1 id="hero-heading">Safe Tab URL Lister —<br/>Copy All Chrome Tab URLs Instantly</h1>
-        <p class="tagline">Free, open-source Chrome extension. Plain text, Markdown, JSON, or CSV. Zero tracking. One click.</p>
+        <p class="tagline">Free, open-source Chrome, Firefox &amp; Safari extension. Plain text, Markdown, JSON, CSV, or TSV. Zero tracking. One click.</p>
 
         <div class="badge-row" aria-label="Key highlights">
           <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Free &amp; Open Source</span>
           <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Zero Network Requests</span>
-          <span class="badge"><span class="badge-dot" aria-hidden="true"></span>v1.0.1</span>
+          <span class="badge"><span class="badge-dot" aria-hidden="true"></span>v1.2.0</span>
           <span class="badge"><span class="badge-dot" aria-hidden="true"></span>MIT License</span>
           <span class="badge"><span class="badge-dot" aria-hidden="true"></span>English &amp; Turkish</span>
         </div>
@@ -665,8 +669,8 @@
                 <path d="M4 4h8v1H4V4zm0 2h8v1H4V6zm0 2h5v1H4V8zM2 1h9l3 3v11H2V1zm2 2v10h8V5h-2V3H4z"/>
               </svg>
             </div>
-            <h3>4 Export Formats</h3>
-            <p>Plain URLs, Markdown links, JSON array, and CSV — choose what fits your workflow.</p>
+            <h3>6 Export Formats</h3>
+            <p>Plain URLs, Markdown, Markdown list, JSON, CSV, and TSV — choose what fits your workflow.</p>
           </div>
 
           <div class="feature-card">
@@ -710,7 +714,7 @@
               </svg>
             </div>
             <h3>All Windows Support</h3>
-            <p>Collect tabs from just the current window, or every open Chrome window at once.</p>
+            <p>Collect tabs from just the current window, or every open window at once, broken into a section per window.</p>
           </div>
 
           <div class="feature-card">
@@ -721,7 +725,18 @@
               </svg>
             </div>
             <h3>Bilingual</h3>
-            <p>Available in English and Turkish. The UI adapts automatically to your Chrome language setting.</p>
+            <p>Available in English and Turkish. The UI adapts automatically to your browser's language setting.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <!-- browsers icon -->
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1.5a5.5 5.5 0 0 1 4.9 3H8.6l-1.2-3.44A5.5 5.5 0 0 1 8 2.5zM6.9 2.87 8.06 5.5H3.6a5.52 5.52 0 0 1 3.3-2.63zM2.5 8c0-.6.08-1.18.23-1.73L5.6 9.5H2.6A5.47 5.47 0 0 1 2.5 8zm.7 3h3.4l1.9 3.4A5.51 5.51 0 0 1 3.2 11zm5.3 3.44L6.9 11h4.2l-1.6 3.44a5.6 5.6 0 0 1-1.5 0zm3.7-.7L10.8 11h2.6a5.53 5.53 0 0 1-2.9 2.74zM13.4 9.5h-2.9l-1.4-2.5h4.66c.16.5.24 1.02.24 1.5s-.08 1-.16 1z"/>
+              </svg>
+            </div>
+            <h3>Chrome, Firefox &amp; Safari</h3>
+            <p>The same MV3 extension runs on Chrome, Firefox 109+, and Safari (macOS &amp; iOS) — no separate app or extra permissions per browser.</p>
           </div>
 
         </div>
@@ -754,21 +769,35 @@ https://docs.google.com/…</pre>
           </div>
 
           <div class="format-card">
+            <span class="format-label label-mdlist">Markdown list</span>
+            <pre>* [Example Domain](https://example.com)
+* [GitHub](https://github.com)
+    * Tab Id: 12
+* [Google Docs](https://docs.google.com/…)</pre>
+          </div>
+
+          <div class="format-card">
             <span class="format-label label-json">JSON</span>
             <pre>[
-  {
-    "title": "Example Domain",
-    "url": "https://example.com"
-  },
+  { "url": "https://example.com" },
+  { "url": "https://github.com" },
   …
 ]</pre>
           </div>
 
           <div class="format-card">
             <span class="format-label label-csv">CSV</span>
-            <pre>"title","url"
-"Example Domain","https://example.com"
-"GitHub","https://github.com"
+            <pre>"url"
+"https://example.com"
+"https://github.com"
+…</pre>
+          </div>
+
+          <div class="format-card">
+            <span class="format-label label-tsv">TSV</span>
+            <pre>url
+https://example.com
+https://github.com
 …</pre>
           </div>
 
@@ -804,7 +833,7 @@ https://docs.google.com/…</pre>
           <tbody>
             <tr>
               <td><code>tabs</code></td>
-              <td>Read the URL and title of each open tab so they can be listed and copied.</td>
+              <td>Read the URL, title, index, tab/opener/group IDs, last-accessed time, and incognito flag of each open tab so they can be listed and copied — only the fields you check appear in the output.</td>
               <td class="tick" aria-label="No">No</td>
             </tr>
             <tr>
@@ -817,6 +846,7 @@ https://docs.google.com/…</pre>
 
         <p style="margin-top:1rem; font-size:0.875rem; color: var(--color-muted);">
           Only the <code>tabs</code> permission is declared in the manifest. No host permissions, no storage, no background scripts.
+          Full details in the <a href="privacy.html">privacy policy</a>.
         </p>
       </div>
     </section>
@@ -833,37 +863,37 @@ https://docs.google.com/…</pre>
 
           <details class="faq-item">
             <summary>
-              How do I copy all my open Chrome tab URLs at once?
+              How do I copy all my open browser tab URLs at once?
               <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z" clip-rule="evenodd"/>
               </svg>
             </summary>
             <div class="faq-answer">
-              Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab URLs from the current window are on your clipboard immediately.
+              Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab URLs from the current window are on your clipboard immediately — the same way in Chrome, Firefox, and Safari.
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              Can I export Chrome tabs as Markdown links?
+              Can I export browser tabs as Markdown links?
               <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z" clip-rule="evenodd"/>
               </svg>
             </summary>
             <div class="faq-answer">
-              Yes. Select "Markdown links" from the format dropdown. The output will be <code>[Page Title](URL)</code> entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor.
+              Yes. Select "Markdown" from the format dropdown. The output will be <code>[Page Title](URL)</code> entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor. "Markdown list" gives the same links as a bullet list with any extra fields as sub-bullets.
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              Is there a Chrome extension that exports tabs as JSON?
+              Is there a browser extension that exports tabs as JSON, CSV, or TSV?
               <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z" clip-rule="evenodd"/>
               </svg>
             </summary>
             <div class="faq-answer">
-              Yes. Select the JSON format. The output is a JSON array where each element has a <code>title</code> and <code>url</code> field.
+              Yes. Select JSON, CSV, or TSV. Each always includes a <code>url</code> field — check "Titles," "Index," "IDs," "Group," or "Accessed" to add more fields to every row.
             </div>
           </details>
 
@@ -881,13 +911,13 @@ https://docs.google.com/…</pre>
 
           <details class="faq-item">
             <summary>
-              Can I export tabs from all Chrome windows at once?
+              Can I export tabs from all open windows at once?
               <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z" clip-rule="evenodd"/>
               </svg>
             </summary>
             <div class="faq-answer">
-              Yes. Enable the "Include all windows" checkbox to collect tabs from every open Chrome window simultaneously.
+              Yes. Enable the "Include all windows" checkbox to collect tabs from every open window at once, grouped into a section per window (incognito windows are flagged).
             </div>
           </details>
 

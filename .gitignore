@@ -9,6 +9,7 @@ extensions/
 *.png
 !src/icons/*.png
 !docs/screenshots/*.png
+!docs/store-assets/*.png
 !xcode/Safe Tab URL Lister/Shared (App)/Resources/icon.png
 
 # Playwright MCP cache
