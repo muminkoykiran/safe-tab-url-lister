@@ -9,11 +9,12 @@
 ## Checklist
 
 - [ ] Tested by loading the extension unpacked in Chrome
-- [ ] All output formats work (plain, markdown, json, csv)
+- [ ] Tested in Firefox and/or Safari, if the change could affect them
+- [ ] All output formats work (plain, markdown, markdown list, json, csv, tsv)
 - [ ] Dark mode looks correct
 - [ ] Keyboard navigation works
 - [ ] No new permissions added (or justified if so)
-- [ ] `_locales/tr/messages.json` updated if new strings added
+- [ ] `src/_locales/tr/messages.json` updated if new strings added
 - [ ] `CHANGELOG.md` updated
 
 ## Screenshots (if UI changed)

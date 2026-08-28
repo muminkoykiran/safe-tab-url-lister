@@ -7,11 +7,24 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report!
 
-  - type: input
-    id: chrome-version
+  - type: dropdown
+    id: browser
     attributes:
-      label: Chrome Version
-      description: Found in chrome://settings/help
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other Chromium-based
+    validations:
+      required: true
+
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser Version
+      description: "Chrome/Edge: chrome://settings/help — Firefox: about:support — Safari: Safari menu → About Safari"
       placeholder: e.g. 124.0.6367.60
     validations:
       required: true

@@ -1,0 +1,6 @@
+# Consolidates one contributor's several git name/email combinations
+# into a single identity so `git shortlog`/contributor graphs don't
+# fragment their work across four rows.
+PJ <iam@weisnobody.com> PJ <git.hub@whiteknights.org>
+PJ <iam@weisnobody.com> pjg <iam@weisnobody.com>
+PJ <iam@weisnobody.com> pjg <pj@the42.net>
