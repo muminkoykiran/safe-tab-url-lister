@@ -72,7 +72,49 @@ jobs:
 
       - name: Build zip (dry run)
         run: |
-          [ -f ./extensions/safe-tab-url-lister-chrome-test-build.zip ] && rm ./extensions/safe-tab-url-lister-chrome-test-build.zip 
+          [ -f ./extensions/safe-tab-url-lister-chrome-test-build.zip ] && rm ./extensions/safe-tab-url-lister-chrome-test-build.zip
           ./scripts/pkg.sh chrome test-build
           ls -lh ./extensions/safe-tab-url-lister-chrome-test-build.zip
           [ -f ./extensions/safe-tab-url-lister-chrome-test-build.zip ] && echo "Build OK" || (echo "Test Build Not Found" && exit 1)
+
+      - name: Validate version consistency across docs
+        run: |
+          python3 -c "
+          import json, re, sys
+
+          browsers = ['chrome', 'firefox', 'safari']
+          versions = set()
+          for browser in browsers:
+              with open('src/manifest/manifest.{}.json'.format(browser)) as f:
+                  versions.add(json.load(f)['version'])
+          assert len(versions) == 1, f'Manifests disagree on version: {versions}'
+          version = versions.pop()
+          print('Manifest version:', version)
+
+          with open('CHANGELOG.md') as f:
+              changelog = f.read()
+          m = re.search(r'## \[(\d+\.\d+\.\d+)\]', changelog)
+          assert m, 'No [x.y.z] heading found in CHANGELOG.md'
+          assert m.group(1) == version, f'CHANGELOG top entry [{m.group(1)}] does not match manifest version {version}'
+          print('CHANGELOG top entry matches:', m.group(1))
+
+          with open('README.md') as f:
+              readme = f.read()
+          m = re.search(r'Chrome%20Web%20Store-v(\d+\.\d+\.\d+)-blue', readme)
+          assert m, 'No Chrome Web Store badge found in README.md'
+          assert m.group(1) == version, f'README badge v{m.group(1)} does not match manifest version {version}'
+          print('README badge matches:', m.group(1))
+
+          with open('docs/index.html') as f:
+              landing = f.read()
+          m = re.search(r'\"softwareVersion\":\s*\"(\d+\.\d+\.\d+)\"', landing)
+          assert m, 'No softwareVersion found in docs/index.html JSON-LD'
+          assert m.group(1) == version, f'docs/index.html softwareVersion {m.group(1)} does not match manifest version {version}'
+          print('docs/index.html softwareVersion matches:', m.group(1))
+
+          with open('src/_locales/en/messages.json') as f:
+              en = json.load(f)
+          desc = en['appDescription']['message']
+          assert len(desc) <= 132, f'appDescription is {len(desc)} chars, over the 132-char Chrome Web Store summary limit'
+          print(f'appDescription OK — {len(desc)}/132 chars')
+          "
