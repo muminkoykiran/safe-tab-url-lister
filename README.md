@@ -2,8 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-green.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v1.0.1-blue?logo=google-chrome)](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif)
-[![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20TR-orange.svg)](_locales/)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-v1.2.0-blue?logo=google-chrome)](https://chrome.google.com/webstore/detail/lfoiekncpjoomigglgjildmjodpfmoif)
+[![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20TR-orange.svg)](src/_locales/)
 
 A free, open-source Chrome, Firefox and Safari extension that collects every URL from your open tabs and copies them in the format you need — plain text, Markdown links, a JSON array, CSV or TSV. No servers, no tracking, no accounts. Everything runs locally in your browser.
 
@@ -21,7 +21,7 @@ Safe Tab URL Lister solves this in one click. Click the icon, choose your format
 
 | Property | Value |
 |---|---|
-| Output formats | Plain URLs, Markdown links, JSON array, CSV, TSV |
+| Output formats | Plain URLs, Markdown links, Markdown list, JSON array, CSV, TSV |
 | Permissions required | `tabs` |
 | Network requests | Zero |
 | Data collection | None |
@@ -43,25 +43,26 @@ Safe Tab URL Lister solves this in one click. Click the icon, choose your format
 
 ## Features
 
-- **List URLs** from the current window or all open Chrome windows
+- **List URLs** from the current window or all open browser windows
 - **Include page titles** alongside each URL (optional)
-- **5 output formats:**
+- **6 output formats:**
   - Plain URLs — one per line
-  - Markdown 
-    - Single Line: `[Page Title](https://url)`
-    - Markdown w/ Links:
-      ```markdown
- [Page Title](https://url)
-  * field name: field value
-      ```
+  - Markdown — `[Page Title](https://url)`
+  - Markdown list — same links as a bullet list, with any extra included fields (index, IDs, group, last accessed) as sub-bullets:
+    ```markdown
+    * [Page Title](https://url)
+        * Tab Id: 55
+    ```
   - JSON — structured array for developers
-  - CSV — spreadsheet-ready with optional titles
-  - TSV - Tab seperated values
+  - CSV — spreadsheet-ready, columns adjust to whichever options are checked
+  - TSV — tab-separated values, same column behavior as CSV
+- **Optional per-tab fields** — tab index, tab ID / opener tab ID, numeric tab group, and last-accessed timestamp, each behind its own checkbox
+- **Per-window grouping** — when "Include all windows" is checked, output is broken into sections by window (and flags incognito windows)
 - **One-click copy** to clipboard
 - **Dark mode** support (follows system preference)
 - **Keyboard accessible** (WCAG 2.1 AA)
 - **Bilingual** — English and Turkish
-- **Safari Limitations** The Safari browser does not support providing the *Last Accessed* 
+- **Safari limitations** — Safari does not support the *Last Accessed* or *Group* options; those two checkboxes are hidden automatically when running in Safari.
 
 ---
 
@@ -112,80 +113,38 @@ For each installation type, enabling the Extension, authorizing permissions and 
 #### Load Unpacked (Developer Mode)
 
 1. Clone or download this repository
-2. Build: `./scripts/build.sh chrome`  or `node ./scripts/build.js chrome`
+2. Build: `./scripts/build.sh chrome`
 3. Open `chrome://extensions/`
 4. Enable **Developer mode** (top-right toggle)
 5. Click **Load unpacked** → select the ./dist/chrome folder
 
-
 ### Firefox ###
 
-#### From Firefox Add On Store
+#### From Firefox Add-ons Store
 
-Not Yet Available
+Not yet available.
 
-#### Load Temporary Add On
-
-1. Clone or download this repository
-2. Build: `./scripts/build.sh firefox`  or `node ./scripts/build.js firefox`
-3. Open `about:debugging#/runtime/this-firefox`
-4. Click the **Load Temporary Addon...** button
-5. Select the manifest.json file in the ./dist/firefox folder and click the **Open** button
-
-### Safari ###
-
-#### From Apple App Store
-
-Not Yet Available
-
-#### Load Temporary Extension (MacOS)
-
-1. Clone or download this repository
-2. Build: `./scripts/build.sh safari`  or `node ./scripts/build.js safari`
-3. Open Safari Settings 
-4. If *Developer* features not enabled, click on the **Advanced** tab and enable **Show features for web developers**
-5. Click on the **Developer** tab
-6. Click on the **Add Temporary Extension** button
-7. Click **Select** after selecting the ./dist/safari folder
-
-#### Via Xcode
-
-1. Clone or download this repository
-2. Build: `./scripts/build.sh safari`  or `node ./scripts/build.js safari`
-3. Open the Xcode project at `./xcode/Safe\ Tab\ URL\ Lister/Safe\ Tab\ URL\ Lister.xcodeproj`
-4. If building for iOS, for each of the iOS targets in the project, assign a Team in the **Signing & Capabilities** tab
-5. Select the specific target and build.
-
-
-### Firefox ###
-
-#### From Firefox Add On Store
-
-Not Yet Available
-
-#### Load Temporary Add On
+#### Load Temporary Add-on
 
 1. Clone or download this repository
 2. Build: `./scripts/build.sh firefox`
 3. Open `about:debugging#/runtime/this-firefox`
-4. Click the **Load Temporary Addon...** button
+4. Click the **Load Temporary Add-on...** button
 5. Select the manifest.json file in the ./dist/firefox folder and click the **Open** button
 
 ### Safari ###
 
-#### From Apple App Store
+Safari support ships as a plain web extension for now (no packaged Mac/iOS app yet — that work lives on a separate branch pending an Apple Developer account).
 
-Not Yet Available
-
-#### Load Temporary Extension (MacOS)
+#### Load Temporary Extension (macOS)
 
 1. Clone or download this repository
-2. Build: `./scripts/build.sh safari` 
-3. Open Safari Settings 
-4. If *Developer* features not enabled, click on the **Advanced** tab and enable **Show features for web developers**
-5. Click on the **Developer** tab
-6. Click on the **Add Temporary Extension** button
-7. Click **Select** after selecting the ./dist/safari folder
+2. Build: `./scripts/build.sh safari`
+3. Open Safari Settings
+4. If *Developer* features are not enabled, click the **Advanced** tab and enable **Show features for web developers**
+5. Click the **Developer** tab
+6. Click **Add Temporary Extension**
+7. Select the ./dist/safari folder and click **Select**
 
 ---
 
@@ -205,53 +164,56 @@ https://news.ycombinator.com
 
 ### Plain URLs w/ All Includes ###
 
-```
-# Window: 1526122566 #
+`Group` shows the numeric tab group ID only — Safari and Firefox don't expose group names or colors without an extra permission this extension deliberately doesn't request, so the group is identified by its ID (enough to tell "these tabs are grouped together").
 
-1. Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers
+```
+Window: 1526122566
+
+1. Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers
 https://developer.chrome.com/docs/webstore/publish
 Tab Id: 57
-Last Accessed: 2026-08-02 18:11:11
+Last Accessed: 2026-08-02T18:11:11.000Z
 
-2. Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers
+2. Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers
 https://developer.chrome.com/docs/webstore/best-listing
 Tab Id: 55
-Last Accessed: 2026-07-25 21:11:40
+Last Accessed: 2026-07-25T21:11:40.000Z
 
-# Window: 73 #
 
-1. GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub
+Window: 73
+
+1. GitHub - anthropics/claude-code
 https://github.com/anthropics/claude-code
 Tab Id: 92
-Last Accessed: 2026-08-06 23:59:29
+Last Accessed: 2026-08-06T23:59:29.000Z
 
 2. Hacker News
 https://news.ycombinator.com/
 Tab Id: 52
-Last Accessed: 2026-08-07 21:24:39
+Last Accessed: 2026-08-07T21:24:39.000Z
 
-# Window: 83 [incognito] #
 
-1. Chrome Extensions  |  Chrome for Developers
+Window: 83 [incognito]
+
+1. Chrome Extensions  |  Chrome for Developers
 https://developer.chrome.com/docs/extensions
 Tab Id: 93
-Group: Extensions (green)
-Last Accessed: 2026-08-07 21:36:51
+Group: 181
+Last Accessed: 2026-08-07T21:36:51.000Z
 
-2. Extensions / How to  |  Chrome for Developers
+2. Extensions / How to  |  Chrome for Developers
 https://developer.chrome.com/docs/extensions/how-to
 Tab Id: 103
 Opened By: 93
-Group: Extensions (green)
-Last Accessed: 2026-08-07 21:39:18
+Group: 181
+Last Accessed: 2026-08-07T21:39:18.000Z
 
 3. Newest 'google-chrome-extension' Questions - Stack Overflow
 https://stackoverflow.com/questions/tagged/google-chrome-extension
 Tab Id: 97
-Group: Extensions (green)
-Last Accessed: 2026-08-07 21:36:48
+Group: 181
+Last Accessed: 2026-08-07T21:36:48.000Z
 ```
-
 
 ### Markdown Links
 
@@ -265,116 +227,119 @@ Outputs `[Page Title](URL)` for each tab. Paste directly into any Markdown edito
 
 ### Markdown Links w/ All Includes
 
+```markdown
+Window: 1526122566
+
+1. [Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/publish) Tab: 57 (2026-08-02T18:11:11.000Z)
+2. [Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/best-listing) Tab: 55 (2026-07-25T21:11:40.000Z)
+
+
+Window: 73
+
+1. [GitHub - anthropics/claude-code](https://github.com/anthropics/claude-code) Tab: 92 (2026-08-06T23:59:29.000Z)
+2. [Hacker News](https://news.ycombinator.com/) Tab: 52 (2026-08-07T21:24:39.000Z)
+
+
+Window: 83 [incognito]
+
+1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 93 [Group: 181] (2026-08-07T21:36:51.000Z)
+2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 103 (Opened By: 93) [Group: 181] (2026-08-07T21:39:18.000Z)
+3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 97 [Group: 181] (2026-08-07T21:36:48.000Z)
 ```
-# Window: 1526122566 #
 
-1. [Publish in the Chrome Web Store  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/publish) Tab: 57 (2026-08-02 18:11:11)
-2. [Creating a great listing page  |  Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/webstore/best-listing) Tab: 55 (2026-07-25 21:11:40)
+### Markdown List
 
+Same links as Markdown, but as a bullet list with any extra included fields as sub-bullets — useful when you want the per-tab metadata visible without cramming it into one line.
 
-# Window: 73 #
-
-1. [GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub](https://github.com/anthropics/claude-code) Tab: 92 (2026-08-06 23:59:29)
-2. [Hacker News](https://news.ycombinator.com/) Tab: 52 (2026-08-07 21:24:39)
-
-# Window: 83 [incognito] #
-
-1. [Chrome Extensions  |  Chrome for Developers](https://developer.chrome.com/docs/extensions) Tab: 93 [Group: 73] (2026-08-07 21:36:51)
-2. [Extensions / How to  |  Chrome for Developers](https://developer.chrome.com/docs/extensions/how-to) Tab: 103 (Opened By: 93) [Group: 73] (2026-08-07 21:39:18)
-3. [Newest 'google-chrome-extension' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/google-chrome-extension) Tab: 97 [Group: 73] (2026-08-07 21:36:48)
+```markdown
+* [GitHub](https://github.com)
+* [Example Domain](https://example.com)
+* [Hacker News](https://news.ycombinator.com)
 ```
 
 ### JSON Array
 
-Outputs a JSON array of objects. Each object contains a `title` string and a `url` string. Use this format when you want to process the tab list programmatically — pipe it into `jq`, load it in Node.js, or feed it to an API.
+By default, only `url` is included. Every other field — `title`, `windowId`, `index`, tab/opener IDs, `groupId`, `incognito`, `lastAccessed` — is present only when its checkbox is checked, and always in this key order: `url, windowId, index, title, id, openerTabId, groupId, incognito, lastAccessed`.
 
 ```json
 [
-  { "title": "GitHub", "url": "https://github.com" },
-  { "title": "Example Domain", "url": "https://example.com" },
-  { "title": "Hacker News", "url": "https://news.ycombinator.com" }
+  { "url": "https://github.com" },
+  { "url": "https://example.com" },
+  { "url": "https://news.ycombinator.com" }
 ]
 ```
 
-### JSON Array w/ Includes
-
+### JSON Array w/ All Includes
 
 ```json
 [
   {
-    "index": 0,
     "url": "https://developer.chrome.com/docs/extensions",
     "windowId": 83,
-    "groupId": 181,
+    "index": 0,
+    "title": "Chrome Extensions  |  Chrome for Developers",
     "id": 93,
     "openerTabId": "",
+    "groupId": 181,
     "incognito": true,
-    "lastAccessed": "2026-08-07 21:36:51"
+    "lastAccessed": "2026-08-07T21:36:51.000Z"
   },
   {
-    "index": 1,
     "url": "https://developer.chrome.com/docs/extensions/how-to",
     "windowId": 83,
-    "groupId": 181,
+    "index": 1,
+    "title": "Extensions / How to  |  Chrome for Developers",
     "id": 103,
     "openerTabId": 93,
+    "groupId": 181,
     "incognito": true,
-    "lastAccessed": "2026-08-07 21:39:18"
+    "lastAccessed": "2026-08-07T21:39:18.000Z"
   },
   {
-    "index": 2,
     "url": "https://stackoverflow.com/questions/tagged/google-chrome-extension",
     "windowId": 83,
-    "groupId": 181,
+    "index": 2,
+    "title": "Newest 'google-chrome-extension' Questions - Stack Overflow",
     "id": 97,
     "openerTabId": "",
+    "groupId": 181,
     "incognito": true,
-    "lastAccessed": "2026-08-07 21:36:48"
-  },
-  {
-    "index": 3,
-    "url": "https://www.typescriptlang.org/docs/",
-    "windowId": 83,
-    "id": 94,
-    "openerTabId": "",
-    "incognito": true,
-    "lastAccessed": "2026-08-07 00:00:32"
+    "lastAccessed": "2026-08-07T21:36:48.000Z"
   }
 ]
 ```
 
-
 ### CSV
 
-Outputs a header row (`windowId,index,url,incognito,lastAccessed`) followed by one quoted row per tab. Open directly in Microsoft Excel, Google Sheets, or any CSV-compatible tool.
+By default, only a `url` column is included — checked options add columns (see below). Open directly in Microsoft Excel, Google Sheets, or any CSV-compatible tool.
 
 ```csv
-"windowId","index","url","incognito","lastAccessed"
-"83","0","https://developer.chrome.com/docs/extensions","true","2026-08-07 21:36:51"
-"83","1","https://developer.chrome.com/docs/extensions/how-to","true","2026-08-07 21:39:18"
-"83","2","https://stackoverflow.com/questions/tagged/google-chrome-extension","true","2026-08-07 21:36:48"
+"url"
+"https://developer.chrome.com/docs/extensions"
+"https://developer.chrome.com/docs/extensions/how-to"
+"https://stackoverflow.com/questions/tagged/google-chrome-extension"
 ```
 
-### CSV w/ Includes
+### CSV w/ All Includes
 
-Similar to the basic CSV output but includes additional columns.
+Column order matches the JSON key order above (minus `url` moving after `windowId`/`index`): `windowId, index, title, url, Tab Id, Opened By Tab Id, Group Id, incognito, lastAccessed`. Values that would let a title be misread as a spreadsheet formula (a leading `=`, `+`, `-`, or `@`) are automatically neutralized.
 
 ```csv
 "windowId","index","title","url","Tab Id","Opened By Tab Id","Group Id","incognito","lastAccessed"
-"83","0","Chrome Extensions | Chrome for Developers","https://developer.chrome.com/docs/extensions","93","","181","true","2026-08-07 21:36:51"
-"83","1","Extensions / How to | Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","103","93","181","true","2026-08-07 21:39:18"
-"83","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","97","","181","true","2026-08-07 21:36:48"
+"83","0","Chrome Extensions  |  Chrome for Developers","https://developer.chrome.com/docs/extensions","93","","181","true","2026-08-07T21:36:51.000Z"
+"83","1","Extensions / How to  |  Chrome for Developers","https://developer.chrome.com/docs/extensions/how-to","103","93","181","true","2026-08-07T21:39:18.000Z"
+"83","2","Newest 'google-chrome-extension' Questions - Stack Overflow","https://stackoverflow.com/questions/tagged/google-chrome-extension","97","","181","true","2026-08-07T21:36:48.000Z"
 ```
 
 ### TSV
 
-Similar to CSV, but delimited by tabs; Include Index and Accessed.
+Same columns and behavior as CSV, delimited by tabs instead of commas.
 
 ```tsv
-windowId	index	url	incognito	lastAccessed
-83	0	https://developer.chrome.com/docs/extensions	true	2026-08-07 21:36:51
-83	1	https://developer.chrome.com/docs/extensions/how-to	true	2026-08-07 21:39:18
-83	2	https://stackoverflow.com/questions/tagged/google-chrome-extension	true	2026-08-07 21:36:48
+windowId	index	title	url	Tab Id	Opened By Tab Id	Group Id	incognito	lastAccessed
+83	0	Chrome Extensions  |  Chrome for Developers	https://developer.chrome.com/docs/extensions	93		181	true	2026-08-07T21:36:51.000Z
+83	1	Extensions / How to  |  Chrome for Developers	https://developer.chrome.com/docs/extensions/how-to	103	93	181	true	2026-08-07T21:39:18.000Z
+83	2	Newest 'google-chrome-extension' Questions - Stack Overflow	https://stackoverflow.com/questions/tagged/google-chrome-extension	97		181	true	2026-08-07T21:36:48.000Z
 ```
 
 ---
@@ -387,7 +352,7 @@ windowId	index	url	incognito	lastAccessed
 | Screenshot | Not selectable text, no clickable links |
 | Session manager extensions | Often require accounts or sync, large permission sets |
 | Manual copy-paste | Slow, error-prone for more than a handful of tabs |
-| **Safe Tab URL Lister** | **One click, 4 formats to choose, zero tracking, no account needed** |
+| **Safe Tab URL Lister** | **One click, 6 formats to choose, zero tracking, no account needed** |
 
 ---
 
@@ -400,9 +365,8 @@ Built with Manifest V3. Works in any Chromium-based browser that supports MV3 ex
 - Brave Browser
 - Vivaldi
 - Opera (with Chrome extension support enabled)
-- Firefox
-- Safari (MacOs and iOS)
-  - Last Accessed date 
+- Firefox 109+
+- Safari (macOS and iOS) — the *Last Accessed* and *Group* options are hidden, since Safari doesn't expose that data to extensions
 
 ---
 
@@ -415,7 +379,7 @@ Install Safe Tab URL Lister, click the extension icon, and press Copy. All tab U
 Yes. Select "Markdown links" from the format dropdown. The output will be a list of `[Page Title](URL)` entries, one per tab, ready to paste into Obsidian, Notion, GitHub, or any Markdown editor.
 
 **Is there a browser extension that exports tabs as JSON?**
-Yes. Select the JSON format. The output is a JSON array where each element has a `title` and a `url` field.
+Yes. Select the JSON format. Each element always has a `url` field; check "Titles" (or any other option) to add more fields to every element.
 
 **Does this extension send my data anywhere?**
 No. There are zero network requests. The extension has no servers, no analytics, and no external dependencies of any kind. Your URLs never leave your device.
@@ -432,7 +396,7 @@ Yes, completely. The extension has no dependency on any external service.
 **Can I use this with Incognito / Private tabs?**
 Browsers require you to manually grant extensions access to Incognito / Private windows. 
  * Chrome: Go to `chrome://extensions`, find Safe Tab URL Lister, and enable "Allow in Incognito".
- * Firefox: Go to `about:addons`, fine *Safe Tab URL Lister*, and allow "Run in Private Windows"
+ * Firefox: Go to `about:addons`, find *Safe Tab URL Lister*, and allow "Run in Private Windows"
  * Safari: From the Safari "Settings", select the "Extensions" and under *Private Browsing* enable "Allow in Private Browsing".
 
  ---
@@ -443,7 +407,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, code style guidel
 
 **Regenerate icons:**
 ```bash
-node generate-icons.js
+node scripts/generate-icons.js
 ```
 
 ---
