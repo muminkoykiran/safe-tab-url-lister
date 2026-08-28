@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "description": "__MSG_appDescription__",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "default_locale": "en",
   "homepage_url": "https://github.com/muminkoykiran/safe-tab-url-lister",
   "icons": {
@@ -25,7 +25,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "safe-tab-url-lister@muminkoykiran.com.tr",
-      "strict_min_version": "109.0",
+      "strict_min_version": "140.0",
       "data_collection_permissions": {
         "required": ["none"]
       }

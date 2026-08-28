@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.2.1] - 2026-08-29
+### Fixed
+- Firefox manifest's `strict_min_version` was `109.0`, but the `data_collection_permissions`
+  key it also declares requires Firefox 140+ (142+ on Android) — `web-ext lint` flagged this
+  before the first AMO submission went out. Bumped to `140.0`.
+
+
 ## [1.2.0] - 2026-08-29
 ### Added
 - Two new output formats: TSV and Markdown list
@@ -54,6 +61,7 @@ output format work in this release.
 - Internationalization: English and Turkish (`_locales/`)
 - Programmatically generated icons (16×16, 48×48, 128×128)
 
+[1.2.1]: https://github.com/muminkoykiran/safe-tab-url-lister/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/muminkoykiran/safe-tab-url-lister/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/muminkoykiran/safe-tab-url-lister/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/muminkoykiran/safe-tab-url-lister/compare/v1.0.1...v1.0.2
