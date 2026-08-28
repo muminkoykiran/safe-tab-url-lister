@@ -551,8 +551,13 @@ function formatDateOrEmpty(value) {
     return ""
   }
 
-  const ds = new Date(value).toISOString();
-  return ds;
+  const date = new Date(value);
+
+  if (isNaN(date.getTime())) {
+    return "";
+  }
+
+  return date.toISOString();
 }
 
 
